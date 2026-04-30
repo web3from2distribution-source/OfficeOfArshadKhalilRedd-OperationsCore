@@ -5,23 +5,110 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DB Preceptual | Office of the Authority Operator</title>
     <style>
-        :root { --main-bg: #ffffff; --text-dark: #1a1a1a; --accent: #333333; --notice-bg: #f8f8f8; }
-        body { font-family: 'Courier New', Courier, monospace; background-color: var(--main-bg); color: var(--text-dark); margin: 0; padding: 0; line-height: 1.6; }
-        .wrapper { max-width: 900px; margin: 40px auto; border: 2px solid var(--text-dark); padding: 40px; box-shadow: 15px 15px 0px var(--accent); }
-        header { border-bottom: 3px solid var(--text-dark); margin-bottom: 30px; padding-bottom: 20px; }
-        nav { margin-bottom: 30px; display: flex; gap: 20px; font-weight: bold; }
-        nav a { color: var(--text-dark); text-decoration: none; text-transform: uppercase; border: 1px solid var(--text-dark); padding: 5px 15px; }
-        nav a:hover { background: var(--text-dark); color: white; }
-        h1, h2 { text-transform: uppercase; letter-spacing: 2px; }
-        .section { display: none; margin-top: 20px; }
-        .active { display: block; }
-        .notice-box { background: var(--notice-bg); border-left: 6px solid var(--text-dark); padding: 20px; margin-bottom: 30px; font-size: 14px; }
+        :root { --main-bg: #ffffff; --text-dark: #1a1a1a; --accent: #333333; --notice-bg: #f9f9f9; }
+        
+        body { font-family: 'Courier New', Courier, monospace; background-color: #e0e0e0; color: var(--text-dark); margin: 0; padding: 0; line-height: 1.5; }
+        
+        /* The main "Filing" container */
+        .wrapper { 
+            max-width: 850px; 
+            margin: 20px auto; 
+            background: white;
+            border: 1px solid var(--text-dark); 
+            padding: 30px; 
+            box-shadow: 10px 10px 0px rgba(0,0,0,0.1);
+            min-height: 95vh;
+            box-sizing: border-box;
+        }
+
+        header { border-bottom: 2px solid var(--text-dark); margin-bottom: 25px; padding-bottom: 15px; }
+        header h1 { margin: 0; font-size: 28px; letter-spacing: 4px; text-transform: uppercase; }
+        header p { margin: 5px 0 0 0; font-size: 13px; color: #555; text-transform: uppercase; }
+
+        /* FIXED NAVIGATION: Responsive Grid */
+        nav { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); 
+            gap: 10px; 
+            margin-bottom: 30px; 
+        }
+        nav a { 
+            color: var(--text-dark); 
+            text-decoration: none; 
+            text-transform: uppercase; 
+            border: 1px solid var(--text-dark); 
+            padding: 12px 5px; 
+            font-size: 11px; 
+            font-weight: bold; 
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        nav a:hover, nav a.active-nav { background: var(--text-dark); color: white; }
+
+        .section { display: none; }
+        .active-section { display: block; animation: fadeIn 0.3s ease-in; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        .notice-box { 
+            background: var(--notice-bg); 
+            border-left: 4px solid var(--text-dark); 
+            padding: 20px; 
+            margin-bottom: 30px; 
+            font-size: 13px; 
+            color: #444;
+        }
+
+        h2 { font-size: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-top: 0; }
+
+        /* Document Outlet Styling */
         .doc-list { list-style: none; padding: 0; }
-        .doc-list li { padding: 15px; border-bottom: 1px solid #ccc; display: flex; justify-content: space-between; align-items: center; }
-        .registry-form label { display: block; margin-top: 20px; font-weight: bold; text-transform: uppercase; font-size: 13px; }
-        .registry-form input, .registry-form select { width: 100%; padding: 12px; margin-top: 8px; border: 2px solid var(--text-dark); box-sizing: border-box; font-family: inherit; }
-        .btn-lodge { margin-top: 35px; padding: 20px; background: var(--text-dark); color: white; border: none; cursor: pointer; width: 100%; font-weight: bold; text-transform: uppercase; font-size: 16px; }
-        .footer { margin-top: 50px; font-size: 11px; border-top: 1px solid #ccc; padding-top: 20px; text-align: center; }
+        .doc-list li { 
+            padding: 15px 0; 
+            border-bottom: 1px solid #eee; 
+            display: flex; 
+            flex-direction: column; 
+            gap: 10px;
+        }
+        @media (min-width: 600px) { .doc-list li { flex-direction: row; justify-content: space-between; } }
+        
+        .doc-list a { color: var(--text-dark); font-weight: bold; font-size: 12px; }
+
+        /* Registry Form Styling */
+        .registry-form label { display: block; margin-top: 15px; font-weight: bold; text-transform: uppercase; font-size: 11px; color: #666; }
+        .registry-form input, .registry-form select { 
+            width: 100%; 
+            padding: 12px; 
+            margin-top: 5px; 
+            border: 1px solid #ccc; 
+            background: #fff;
+            font-family: inherit;
+            border-radius: 0;
+            -webkit-appearance: none;
+        }
+
+        .btn-lodge { 
+            margin-top: 30px; 
+            padding: 18px; 
+            background: var(--text-dark); 
+            color: white; 
+            border: none; 
+            width: 100%; 
+            font-weight: bold; 
+            text-transform: uppercase; 
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+
+        .footer { margin-top: 40px; font-size: 10px; text-align: center; border-top: 1px solid #eee; padding-top: 20px; color: #999; text-transform: uppercase; }
+
+        /* Mobile specific padding adjustments */
+        @media (max-width: 480px) {
+            body { margin: 0; background-color: #fff; }
+            .wrapper { margin: 0; border: none; box-shadow: none; padding: 20px; }
+        }
     </style>
 </head>
 <body>
@@ -33,13 +120,13 @@
     </header>
 
     <nav>
-        <a href="#" onclick="showSection('home')">1. Administrative Decree</a>
-        <a href="#" onclick="showSection('statements')">2. Statements Outlet</a>
-        <a href="#" onclick="showSection('registry')">3. Bailment Registry</a>
+        <a href="javascript:void(0)" id="nav-home" class="active-nav" onclick="showSection('home')">1. Administrative Decree</a>
+        <a href="javascript:void(0)" id="nav-statements" onclick="showSection('statements')">2. Statements Outlet</a>
+        <a href="javascript:void(0)" id="nav-registry" onclick="showSection('registry')">3. Bailment Registry</a>
     </nav>
 
-    <!-- SECTION 1: ADMINISTRATIVE DECREE -->
-    <div id="home" class="section active">
+    <!-- SECTION 1 -->
+    <div id="home" class="section active-section">
         <div class="notice-box">
             <strong>OFFICIAL NOTICE:</strong> Authority previously held by Tier 1 regulators is hereby declared in default as of April 27, 2026. DB Preceptual establishes the "Safe Medium" for institutional alignment.
         </div>
@@ -48,27 +135,27 @@
         <p>Institutions operating under this logic are granted access to a proprietary Two-Phase Protocol designed to protect Legacy Pool Liquidity from ongoing mathematical slippage and administrative vacuums.</p>
     </div>
 
-    <!-- SECTION 2: STATEMENTS OUTLET -->
+    <!-- SECTION 2 -->
     <div id="statements" class="section">
         <h2>Public Notice Repository</h2>
         <p>The following documents constitute the public record of institutional authority. Download for mandatory due diligence.</p>
         <ul class="doc-list">
             <li>
-                <strong>UCC-1 Financing Statement #U260027298536</strong>
+                <span>UCC-1 Financing Statement #U260027298536</span>
                 <a href="UCC1_Filing.pdf" target="_blank">[DOWNLOAD PDF]</a>
             </li>
             <li>
-                <strong>New Treasury Formula - Remedial Weight Evaluation</strong>
+                <span>New Treasury Formula - Remedial Weight Evaluation</span>
                 <a href="Treasury_Formula.pdf" target="_blank">[DOWNLOAD PDF]</a>
             </li>
             <li>
-                <strong>Notice of Executive Entity Alignment</strong>
+                <span>Notice of Executive Entity Alignment</span>
                 <a href="Notice_Alignment.pdf" target="_blank">[DOWNLOAD PDF]</a>
             </li>
         </ul>
     </div>
 
-    <!-- SECTION 3: REGISTRY -->
+    <!-- SECTION 3 -->
     <div id="registry" class="section">
         <h2>Institutional Bailment Registry</h2>
         <div class="notice-box">
@@ -91,14 +178,13 @@
             </select>
 
             <label>Protocol Acknowledgment</label>
-            <p style="font-size: 11px;">I acknowledge the Two-Phase Protocol (Guidelines & ESTP Logic) required for DB Preceptual alignment.</p>
             <select required>
                 <option value="">-- Confirm Alignment Level --</option>
                 <option value="standard">Standard Bailment Seat</option>
                 <option value="master">Master Bailment Seat</option>
             </select>
 
-            <button type="submit" class="btn-lodge">Lodge Registration with the Authority Operator</button>
+            <button type="submit" class="btn-lodge">Lodge Registration</button>
         </form>
     </div>
 
@@ -109,13 +195,22 @@
 
 <script>
     function showSection(sectionId) {
-        document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
-        document.getElementById(sectionId).classList.add('active');
+        // Hide all sections
+        document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active-section'));
+        // Remove active class from all nav buttons
+        document.querySelectorAll('nav a').forEach(nav => nav.classList.remove('active-nav'));
+        
+        // Show target section
+        document.getElementById(sectionId).classList.add('active-section');
+        // Set active nav button
+        document.getElementById('nav-' + sectionId).classList.add('active-nav');
+        
+        window.scrollTo(0,0);
     }
 
     document.getElementById('regForm').addEventListener('submit', function(e) {
         e.preventDefault();
-        alert("Institutional Data Lodged. Evaluation of Remedial Weight in progress. You will be contacted via your registered legal representative.");
+        alert("Institutional Data Lodged. Evaluation of Remedial Weight in progress.");
     });
 </script>
 
