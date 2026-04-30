@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DB Preceptual | Office of the Authority Operator</title>
+    <style>
+        :root { --main-bg: #ffffff; --text-dark: #1a1a1a; --accent: #333333; --notice-bg: #f8f8f8; }
+        body { font-family: 'Courier New', Courier, monospace; background-color: var(--main-bg); color: var(--text-dark); margin: 0; padding: 0; line-height: 1.6; }
+        .wrapper { max-width: 900px; margin: 40px auto; border: 2px solid var(--text-dark); padding: 40px; box-shadow: 15px 15px 0px var(--accent); }
+        header { border-bottom: 3px solid var(--text-dark); margin-bottom: 30px; padding-bottom: 20px; }
+        nav { margin-bottom: 30px; display: flex; gap: 20px; font-weight: bold; }
+        nav a { color: var(--text-dark); text-decoration: none; text-transform: uppercase; border: 1px solid var(--text-dark); padding: 5px 15px; }
+        nav a:hover { background: var(--text-dark); color: white; }
+        h1, h2 { text-transform: uppercase; letter-spacing: 2px; }
+        .section { display: none; margin-top: 20px; }
+        .active { display: block; }
+        .notice-box { background: var(--notice-bg); border-left: 6px solid var(--text-dark); padding: 20px; margin-bottom: 30px; font-size: 14px; }
+        .doc-list { list-style: none; padding: 0; }
+        .doc-list li { padding: 15px; border-bottom: 1px solid #ccc; display: flex; justify-content: space-between; align-items: center; }
+        .registry-form label { display: block; margin-top: 20px; font-weight: bold; text-transform: uppercase; font-size: 13px; }
+        .registry-form input, .registry-form select { width: 100%; padding: 12px; margin-top: 8px; border: 2px solid var(--text-dark); box-sizing: border-box; font-family: inherit; }
+        .btn-lodge { margin-top: 35px; padding: 20px; background: var(--text-dark); color: white; border: none; cursor: pointer; width: 100%; font-weight: bold; text-transform: uppercase; font-size: 16px; }
+        .footer { margin-top: 50px; font-size: 11px; border-top: 1px solid #ccc; padding-top: 20px; text-align: center; }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <header>
+        <h1>DB Preceptual</h1>
+        <p>Institutional Authority Operator | Office of Arshad Khalil Redd</p>
+    </header>
+
+    <nav>
+        <a href="#" onclick="showSection('home')">1. Administrative Decree</a>
+        <a href="#" onclick="showSection('statements')">2. Statements Outlet</a>
+        <a href="#" onclick="showSection('registry')">3. Bailment Registry</a>
+    </nav>
+
+    <!-- SECTION 1: ADMINISTRATIVE DECREE -->
+    <div id="home" class="section active">
+        <div class="notice-box">
+            <strong>OFFICIAL NOTICE:</strong> Authority previously held by Tier 1 regulators is hereby declared in default as of April 27, 2026. DB Preceptual establishes the "Safe Medium" for institutional alignment.
+        </div>
+        <h2>Administrative Decree</h2>
+        <p>The core mission of DB Preceptual is to resolve systemic mathematical negligence within the global financial architecture. By implementing the <strong>ESTP Logic</strong>, this office identifies and corrects the $1 Billion+ signaling errors currently existing in multi-token liquidity pools.</p>
+        <p>Institutions operating under this logic are granted access to a proprietary Two-Phase Protocol designed to protect Legacy Pool Liquidity from ongoing mathematical slippage and administrative vacuums.</p>
+    </div>
+
+    <!-- SECTION 2: STATEMENTS OUTLET -->
+    <div id="statements" class="section">
+        <h2>Public Notice Repository</h2>
+        <p>The following documents constitute the public record of institutional authority. Download for mandatory due diligence.</p>
+        <ul class="doc-list">
+            <li>
+                <strong>UCC-1 Financing Statement #U260027298536</strong>
+                <a href="UCC1_Filing.pdf" target="_blank">[DOWNLOAD PDF]</a>
+            </li>
+            <li>
+                <strong>New Treasury Formula - Remedial Weight Evaluation</strong>
+                <a href="Treasury_Formula.pdf" target="_blank">[DOWNLOAD PDF]</a>
+            </li>
+            <li>
+                <strong>Notice of Executive Entity Alignment</strong>
+                <a href="Notice_Alignment.pdf" target="_blank">[DOWNLOAD PDF]</a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- SECTION 3: REGISTRY -->
+    <div id="registry" class="section">
+        <h2>Institutional Bailment Registry</h2>
+        <div class="notice-box">
+            This registry captures Legacy Pool variables to determine seat eligibility. All data is evaluated via the ESTP Logic.
+        </div>
+        <form class="registry-form" id="regForm">
+            <label>Legal Entity Name</label>
+            <input type="text" id="entity" required>
+
+            <label>Unique Entity ID (UEI) / EIN</label>
+            <input type="text" id="uei" required>
+
+            <label>Total Value of Legacy Pool Liquidity (Digital Units)</label>
+            <input type="text" id="legacy" placeholder="E.g., 500,000,000" required>
+
+            <label>Historical Signaling Errors or Losses Recorded?</label>
+            <select id="errors">
+                <option value="none">No Errors Recorded (Preventative Registration)</option>
+                <option value="detected">Errors/Losses Detected (Remedial Registration)</option>
+            </select>
+
+            <label>Protocol Acknowledgment</label>
+            <p style="font-size: 11px;">I acknowledge the Two-Phase Protocol (Guidelines & ESTP Logic) required for DB Preceptual alignment.</p>
+            <select required>
+                <option value="">-- Confirm Alignment Level --</option>
+                <option value="standard">Standard Bailment Seat</option>
+                <option value="master">Master Bailment Seat</option>
+            </select>
+
+            <button type="submit" class="btn-lodge">Lodge Registration with the Authority Operator</button>
+        </form>
+    </div>
+
+    <div class="footer">
+        © 2026 DB Preceptual | DBPrecept.ooakr@proton.me | All Rights Reserved
+    </div>
+</div>
+
+<script>
+    function showSection(sectionId) {
+        document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+        document.getElementById(sectionId).classList.add('active');
+    }
+
+    document.getElementById('regForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert("Institutional Data Lodged. Evaluation of Remedial Weight in progress. You will be contacted via your registered legal representative.");
+    });
+</script>
+
+</body>
+</html>
