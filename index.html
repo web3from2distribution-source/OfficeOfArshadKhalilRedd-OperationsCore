@@ -140,11 +140,16 @@
 
                 <div class="form-group full-width">
                     <label>Total Value of Legacy Pool Liquidity (Digital Units)</label>
-                    <input type="text" name="Liquidity_Units" placeholder="For ESTP Logic Evaluation" required>
+                    <input type="text" name="Liquidity_Units" placeholder="For DBP Evaluation" required>
+                </div>
+
+                <div class="form-group full-width">
+                    <label>Total Length of Time In Possession of Legacy Assets (BTC, ETH, BNB et.)</label>
+                    <input type="text" name="Time_in Possession" placeholder="For DBP Evaluation" required>
                 </div>
 
                 <div class="form-group">
-                    <label>Slippage History / Signaling Errors</label>
+                    <label>Exploit History</label>
                     <select name="Error_Status">
                         <option value="preventative">Preventative Entry (Risk Mitigation)</option>
                         <option value="remedial">Remedial Entry (Correcting Signaling Errors)</option>
@@ -153,10 +158,12 @@
 
                 <div class="form-group">
                     <label>Requested Alignment Level</label>
-                    <select name="Seat_Type" required>
-                        <option value="">-- Select Alignment Level --</option>
-                        <option value="standard">Standard Bailment Seat</option>
-                        <option value="master">Master Bailment Seat</option>
+                    <select name="Tier_Level" required>
+                        <option value="">-- Select Tier Level --</option>
+                        <option value="tier1">Tier 1 Institution</option>
+                        <option value="tier2">Tier 2 Institution</option>
+                        <option value="tier3">Tier 3 Institution</option>
+                   
                     </select>
                 </div>
 
