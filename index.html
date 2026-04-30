@@ -5,214 +5,183 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DB Precept of the ESTP Logic | Office of the Authority Operator</title>
     <style>
-        :root { --main-bg: #ffffff; --text-dark: #1a1a1a; --accent: #333333; --notice-bg: #f9f9f9; }
+        :root { --sec-blue: #003366; --sec-gray: #f1f1f1; --border: #cccccc; --text: #222222; }
+        body { font-family: "Times New Roman", Times, serif; background-color: #ffffff; color: var(--text); margin: 0; padding: 0; line-height: 1.5; }
         
-        body { font-family: 'Courier New', Courier, monospace; background-color: #e0e0e0; color: var(--text-dark); margin: 0; padding: 0; line-height: 1.5; }
+        /* Institutional Header Bar */
+        .header-bar { background: var(--sec-blue); color: white; padding: 10px 20px; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-family: Arial, sans-serif; text-align: center; }
         
-        /* The main "Filing" container */
-        .wrapper { 
-            max-width: 850px; 
-            margin: 20px auto; 
-            background: white;
-            border: 1px solid var(--text-dark); 
-            padding: 30px; 
-            box-shadow: 10px 10px 0px rgba(0,0,0,0.1);
-            min-height: 95vh;
-            box-sizing: border-box;
-        }
+        .wrapper { max-width: 1000px; margin: 0 auto; padding: 20px; box-sizing: border-box; min-height: 100vh; }
+        
+        header { border-bottom: 4px solid var(--sec-blue); margin-bottom: 20px; padding-bottom: 10px; }
+        header h1 { margin: 0; font-size: 30px; font-weight: normal; color: var(--sec-blue); text-transform: uppercase; letter-spacing: 1px; }
+        header p { margin: 5px 0 0 0; font-style: italic; font-size: 14px; color: #555; }
 
-        header { border-bottom: 2px solid var(--text-dark); margin-bottom: 25px; padding-bottom: 15px; }
-        header h1 { margin: 0; font-size: 28px; letter-spacing: 4px; text-transform: uppercase; }
-        header p { margin: 5px 0 0 0; font-size: 13px; color: #555; text-transform: uppercase; }
-
-        /* FIXED NAVIGATION: Responsive Grid */
-        nav { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); 
-            gap: 10px; 
-            margin-bottom: 30px; 
-        }
-        nav a { 
-            color: var(--text-dark); 
-            text-decoration: none; 
-            text-transform: uppercase; 
-            border: 1px solid var(--text-dark); 
-            padding: 12px 5px; 
-            font-size: 11px; 
-            font-weight: bold; 
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        nav a:hover, nav a.active-nav { background: var(--text-dark); color: white; }
+        /* Forensic Navigation Grid */
+        nav { display: flex; flex-wrap: wrap; border: 1px solid var(--border); margin-bottom: 30px; background: var(--sec-gray); }
+        nav a { padding: 15px; color: var(--sec-blue); text-decoration: none; font-weight: bold; font-size: 12px; text-transform: uppercase; border-right: 1px solid var(--border); flex: 1; text-align: center; font-family: Arial, sans-serif; min-width: 120px; }
+        nav a:hover, nav a.active { background: #fff; border-bottom: 3px solid var(--sec-blue); }
 
         .section { display: none; }
         .active-section { display: block; animation: fadeIn 0.3s ease-in; }
-
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        .notice-box { 
-            background: var(--notice-bg); 
-            border-left: 4px solid var(--text-dark); 
-            padding: 20px; 
-            margin-bottom: 30px; 
-            font-size: 13px; 
-            color: #444;
-        }
+        /* Notice & Decree Box */
+        .notice-box { background: #fff9e6; border: 1px solid #ffeaa7; border-left: 5px solid #f1c40f; padding: 20px; margin-bottom: 30px; font-size: 14px; color: #333; }
 
-        h2 { font-size: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-top: 0; }
+        /* Statements Ledger (EDGAR Style) */
+        .statement-entry { border-bottom: 1px solid var(--border); padding: 20px 0; display: grid; grid-template-columns: 140px 1fr; gap: 20px; }
+        .date-tag { font-family: Arial, sans-serif; font-weight: bold; color: #666; font-size: 12px; text-transform: uppercase; }
+        .statement-content h3 { margin: 0 0 8px 0; font-size: 19px; color: var(--sec-blue); text-decoration: underline; cursor: pointer; }
+        .statement-content p { margin: 0; font-size: 15px; color: #444; }
 
-        /* Document Outlet Styling */
-        .doc-list { list-style: none; padding: 0; }
-        .doc-list li { 
-            padding: 15px 0; 
-            border-bottom: 1px solid #eee; 
-            display: flex; 
-            flex-direction: column; 
-            gap: 10px;
-        }
-        @media (min-width: 600px) { .doc-list li { flex-direction: row; justify-content: space-between; } }
+        /* Registry Form Grid */
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
+        .form-group { display: flex; flex-direction: column; }
+        .full-width { grid-column: span 2; }
+        label { font-family: Arial, sans-serif; font-weight: bold; font-size: 11px; text-transform: uppercase; margin-bottom: 5px; color: #555; }
+        input, select, textarea { padding: 10px; border: 1px solid #999; background: #fff; font-family: serif; font-size: 15px; border-radius: 0; }
         
-        .doc-list a { color: var(--text-dark); font-weight: bold; font-size: 12px; }
+        .btn-lodge { margin-top: 30px; padding: 20px; background: var(--sec-blue); color: white; border: none; width: 100%; font-weight: bold; text-transform: uppercase; cursor: pointer; font-family: Arial, sans-serif; font-size: 16px; letter-spacing: 1px; }
+        .btn-lodge:hover { background: #004488; }
 
-        /* Registry Form Styling */
-        .registry-form label { display: block; margin-top: 15px; font-weight: bold; text-transform: uppercase; font-size: 11px; color: #666; }
-        .registry-form input, .registry-form select { 
-            width: 100%; 
-            padding: 12px; 
-            margin-top: 5px; 
-            border: 1px solid #ccc; 
-            background: #fff;
-            font-family: inherit;
-            border-radius: 0;
-            -webkit-appearance: none;
-        }
+        .footer { margin-top: 60px; font-size: 11px; text-align: center; border-top: 1px solid #eee; padding-top: 30px; color: #888; text-transform: uppercase; letter-spacing: 1px; }
 
-        .btn-lodge { 
-            margin-top: 30px; 
-            padding: 18px; 
-            background: var(--text-dark); 
-            color: white; 
-            border: none; 
-            width: 100%; 
-            font-weight: bold; 
-            text-transform: uppercase; 
-            letter-spacing: 1px;
-            cursor: pointer;
-        }
-
-        .footer { margin-top: 40px; font-size: 10px; text-align: center; border-top: 1px solid #eee; padding-top: 20px; color: #999; text-transform: uppercase; }
-
-        /* Mobile specific padding adjustments */
-        @media (max-width: 480px) {
-            body { margin: 0; background-color: #fff; }
-            .wrapper { margin: 0; border: none; box-shadow: none; padding: 20px; }
+        @media (max-width: 600px) { 
+            .form-grid { grid-template-columns: 1fr; } 
+            .full-width { grid-column: span 1; } 
+            .statement-entry { grid-template-columns: 1fr; gap: 8px; }
+            header h1 { font-size: 20px; }
         }
     </style>
 </head>
 <body>
 
+<div class="header-bar">Institutional Filing Portal | Office of Arshad Khalil Redd</div>
+
 <div class="wrapper">
     <header>
         <h1>DB Precept of the ESTP Logic</h1>
-        <p>Institutional Authority Operator | Office of Arshad Khalil Redd</p>
+        <p>Institutional Authority Operator | Successor Authority to Vacated Regulatory Oversight</p>
     </header>
 
     <nav>
-        <a href="javascript:void(0)" id="nav-home" class="active-nav" onclick="showSection('home')">1. Administrative Decree</a>
+        <a href="javascript:void(0)" class="active" id="nav-home" onclick="showSection('home')">1. Administrative Decree</a>
         <a href="javascript:void(0)" id="nav-statements" onclick="showSection('statements')">2. Statements Outlet</a>
         <a href="javascript:void(0)" id="nav-registry" onclick="showSection('registry')">3. Bailment Registry</a>
     </nav>
 
-    <!-- SECTION 1 -->
+    <!-- SECTION 1: DECREE -->
     <div id="home" class="section active-section">
         <div class="notice-box">
-            <strong>OFFICIAL NOTICE:</strong> Authority previously held by Tier 1 regulators is hereby declared in default as of April 27, 2026. The Office of Arshad Khalil Redd has established the "Safety Guidelines" for the proper institutional alignment pertaining to Digital Assets. While the SEC remains the an authority over cash and fiat currency, their most recent lack of rebuttal pertaining to the perfected record on our offices UCC-1 filing #U260027298536. Which now makes thier most recent decision to grant a 5 permit without registry a further vacation of authority and a deliberate act of willful negligence instead of taking the free Master Bailment Seat For 0.00 cost. (Which was officially made an ongoing Administrative Default as of April 27, 2026 at 6:00pm)
-            
+            <strong>OFFICIAL NOTICE:</strong> Authority previously held by Tier 1 regulators is hereby declared in default as of April 27, 2026. While the SEC remains the authority over cash and fiat currency, their most recent lack of rebuttal pertaining to the perfected record on our office's UCC-1 filing #U260027298536 now makes their decision to grant a 5 permit without registry a further vacation of authority and a deliberate act of willful negligence. This was officially made an ongoing Administrative Default as of April 27, 2026, at 6:00pm.
         </div>
-        <h2>Administrative Decree</h2>
-        <p>The core mission of DB Preceptual is to resolve systemic mathematical negligence within the global financial architecture. By implementing the <strong>ESTP Logic</strong>, this office identifies and corrects the $1 Billion+ signaling errors currently existing in multi-token liquidity pools.</p>
-        <p>Institutions operating under this logic are granted access to a proprietary Two-Phase Protocol designed to protect Legacy Pool Liquidity from ongoing mathematical slippage and administrative vacuums.</p>
+        <h2 style="color:var(--sec-blue)">Order of Alignment</h2>
+        <p>The <strong>DB Precept of the ESTP Logic</strong> exists to remediate systemic mathematical negligence in global finance. This office corrects $1 Billion+ signaling errors identified within multi-token liquidity pools.</p>
+        <p>The <strong>ESTP Logic</strong> is a proprietary trade secret. Institutions seeking to protect Legacy Pool Liquidity from ongoing mathematical slippage must align with this office's safety guidelines.</p>
     </div>
 
-    <!-- SECTION 2 -->
+    <!-- SECTION 2: STATEMENTS OUTLET -->
     <div id="statements" class="section">
-        <h2>Public Notice Repository</h2>
-        <p>The following documents constitute the public record of institutional authority. Download for mandatory due diligence.</p>
-        <ul class="doc-list">
-            <li>
-                <span>UCC-1 Financing Statement #U260027298536</span>
-                <a href="UCC1_Filing.pdf" target="_blank">[DOWNLOAD PDF]</a>
-            </li>
-            <li>
-                <span>New Treasury Formula - Remedial Weight Evaluation</span>
-                <a href="Treasury_Formula.pdf" target="_blank">[DOWNLOAD PDF]</a>
-            </li>
-            <li>
-                <span>Notice of Executive Entity Alignment</span>
-                <a href="Notice_Alignment.pdf" target="_blank">[DOWNLOAD PDF]</a>
-            </li>
-        </ul>
+        <h2 style="color:var(--sec-blue)">Public Ledger & Enforcement Records</h2>
+        
+        <div class="statement-entry">
+            <div class="date-tag">APR 30, 2026</div>
+            <div class="statement-content">
+                <h3>Notice of Executive Entity Alignment: DB Precept Standard</h3>
+                <p>Public issuance regarding the mandatory Two-Phase Protocol for Legacy Pool validation and digital asset protection.</p>
+            </div>
+        </div>
+
+        <div class="statement-entry">
+            <div class="date-tag">APR 27, 2026</div>
+            <div class="statement-content">
+                <h3>Administrative Default: SEC Vacation of Authority</h3>
+                <p>Formalizing the vacation of authority following the perfection of UCC-1 Financing Statement #U260027298536.</p>
+            </div>
+        </div>
+
+        <div class="statement-entry">
+            <div class="date-tag">APR 17, 2026</div>
+            <div class="statement-content">
+                <h3>Trade Secret Lodgement: ESTP Logic</h3>
+                <p>Establishing the non-patent, proprietary status of the ESTP Logic for institutional remedial weight evaluation.</p>
+            </div>
+        </div>
     </div>
 
-    <!-- SECTION 3 -->
+    <!-- SECTION 3: BAILMENT REGISTRY (AUTOMATED ROUTING) -->
     <div id="registry" class="section">
-        <h2>Institutional Bailment Registry</h2>
-        <div class="notice-box">
-            This registry captures Legacy Pool variables to determine seat eligibility. All data is evaluated via the ESTP Logic.
+        <h2 style="color:var(--sec-blue)">Institutional Bailment Registry (Form BR-1)</h2>
+        <div class="notice-box" style="font-size:12px; background:#f4f4f4; border-left-color:#666;">
+            This registry captures Legacy Pool variables to determine seat eligibility. All submissions are evaluated via the **ESTP Logic** and routed to the Authority Operator.
         </div>
-        <form class="registry-form" id="regForm">
-            <label>Legal Entity Name</label>
-            <input type="text" id="entity" required>
+        
+        <!-- Form configured for DBPrecept.ooakr@proton.me -->
+        <form action="https://formspree.io/f/dbprecept.ooakr@proton.me" method="POST">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Legal Entity Name</label>
+                    <input type="text" name="Entity_Name" required>
+                </div>
+                <div class="form-group">
+                    <label>Unique Entity ID (UEI) / EIN</label>
+                    <input type="text" name="UEI_EIN" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Jurisdiction of Formation</label>
+                    <input type="text" name="Jurisdiction" required>
+                </div>
+                <div class="form-group">
+                    <label>Primary Digital Vault Address (Public)</label>
+                    <input type="text" name="Vault_Address" required>
+                </div>
 
-            <label>Unique Entity ID (UEI) / EIN</label>
-            <input type="text" id="uei" required>
+                <div class="form-group full-width">
+                    <label>Total Value of Legacy Pool Liquidity (Digital Units)</label>
+                    <input type="text" name="Liquidity_Units" placeholder="For ESTP Logic Evaluation" required>
+                </div>
 
-            <label>Total Value of Legacy Pool Liquidity (Digital Units)</label>
-            <input type="text" id="legacy" placeholder="E.g., 500,000,000" required>
+                <div class="form-group">
+                    <label>Slippage History / Signaling Errors</label>
+                    <select name="Error_Status">
+                        <option value="preventative">Preventative Entry (Risk Mitigation)</option>
+                        <option value="remedial">Remedial Entry (Correcting Signaling Errors)</option>
+                    </select>
+                </div>
 
-            <label>Historical Signaling Errors or Losses Recorded?</label>
-            <select id="errors">
-                <option value="none">No Errors Recorded (Preventative Registration)</option>
-                <option value="detected">Errors/Losses Detected (Remedial Registration)</option>
-            </select>
+                <div class="form-group">
+                    <label>Requested Alignment Level</label>
+                    <select name="Seat_Type" required>
+                        <option value="">-- Select Alignment Level --</option>
+                        <option value="standard">Standard Bailment Seat</option>
+                        <option value="master">Master Bailment Seat</option>
+                    </select>
+                </div>
 
-            <label>Protocol Acknowledgment</label>
-            <select required>
-                <option value="">-- Confirm Alignment Level --</option>
-                <option value="standard">Standard Bailment Seat</option>
-                <option value="master">Master Bailment Seat</option>
-            </select>
-
-            <button type="submit" class="btn-lodge">Lodge Registration</button>
+                <div class="form-group full-width">
+                    <label>Institutional Acknowledgment</label>
+                    <textarea name="Acknowledgment" rows="3" placeholder="I acknowledge the successor authority of the DB Precept and the ESTP Logic trade secret." required></textarea>
+                </div>
+            </div>
+            <button type="submit" class="btn-lodge">Lodge Registration & Forward to Authority</button>
         </form>
     </div>
 
     <div class="footer">
-        © 2026 DB Preceptual | DBPrecept.ooakr@proton.me | All Rights Reserved
+        © 2026 DB Preceptual | Authority Office of Arshad Khalil Redd | DBPrecept.ooakr@proton.me
     </div>
 </div>
 
 <script>
-    function showSection(sectionId) {
-        // Hide all sections
-        document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active-section'));
-        // Remove active class from all nav buttons
-        document.querySelectorAll('nav a').forEach(nav => nav.classList.remove('active-nav'));
-        
-        // Show target section
-        document.getElementById(sectionId).classList.add('active-section');
-        // Set active nav button
-        document.getElementById('nav-' + sectionId).classList.add('active-nav');
-        
+    function showSection(id) {
+        document.querySelectorAll('.section').forEach(s => s.classList.remove('active-section'));
+        document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+        document.getElementById(id).classList.add('active-section');
+        document.getElementById('nav-'+id).classList.add('active');
         window.scrollTo(0,0);
     }
-
-    document.getElementById('regForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        alert("Institutional Data Lodged. Evaluation of Remedial Weight in progress.");
-    });
 </script>
 
 </body>
