@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -125,22 +125,27 @@
         }
         .date-tag { font-weight: 600; color: var(--turquoise); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
         .statement-content h3 { margin: 0 0 8px 0; font-size: 16px; color: var(--text-bright); font-weight: 500; }
-        .statement-content p { margin: 0; font-size: 14px; color: var(--text-main); }
+        .statement-content p { 
+            margin: 0; 
+            font-size: 15px; 
+            color: var(--text-main); 
+        }
 
         .footer { 
             margin-top: 60px; 
-            font-size: 10px; 
+            font-size: 11px; 
             text-align: center; 
             border-top: 1px solid var(--border); 
             padding-top: 30px; 
             color: var(--text-muted); 
             text-transform: uppercase; 
-            letter-spacing: 1.5px; 
+            letter-spacing: 1.2px; 
+            font-family: Arial, sans-serif; 
         }
 
         @media (max-width: 600px) { 
             .statement-entry { grid-template-columns: 1fr; gap: 8px; }
-            header h1 { font-size: 18px; }
+            header h1 { font-size: 20px; }
             nav a { min-width: 100%; border-right: none; border-bottom: 1px solid var(--border); }
         }
     </style>
@@ -318,325 +323,6 @@
             <button type="submit" style="width: 100%; padding: 16px; background-color: var(--turquoise); color: #000000; border: none; border-radius: 4px; font-size: 14px; font-weight: 700; cursor: pointer; text-transform: uppercase; letter-spacing: 1.5px; transition: opacity 0.2s;">
                 Submit Enclave Application
             </button>
-        </form>
-    </div>
-
-    <div class="footer">
-        © 2026 DB Preceptual | Office of Protocol Operations | akredd@dbprecept.us[cite: 1]
-    </div>
-</div>
-
-<script>
-    function showSection(id) {
-        document.querySelectorAll('.section').forEach(s => s.classList.remove('active-section'));
-        document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
-        document.getElementById(id).classList.add('active-section');
-        document.getElementById('nav-'+id).classList.add('active');
-        window.scrollTo(0,0);
-    }
-</script>
-
-</body>
-</html>        .statement-content p { margin: 0; font-size: 15px; color: #444; }
-
-        .footer { margin-top: 60px; font-size: 11px; text-align: center; border-top: 1px solid var(--border); padding-top: 30px; color: #777; text-transform: uppercase; letter-spacing: 1.2px; font-family: Arial, sans-serif; }
-
-        @media (max-width: 600px) { 
-            .statement-entry { grid-template-columns: 1fr; gap: 8px; }
-            header h1 { font-size: 20px; }
-            nav a { min-width: 100%; border-right: none; border-bottom: 1px solid var(--border); }
-        }
-    </style>
-</head>
-<body>
-
-<div class="header-bar">Institutional Protocol Portal | Office of Protocol Operations</div>
-
-<div class="wrapper">
-    <header>
-        <h1>DB Precept & The ESTP Logic</h1>
-        <p>Framework Guidelines & Systemic Asset Optimization Standards</p>
-    </header>
-
-    <nav>
-        <a href="javascript:void(0)" class="active" id="nav-home" onclick="showSection('home')">1. Administrative Overview</a>
-        <a href="javascript:void(0)" id="nav-statements" onclick="showSection('statements')">2. Record Archive</a>
-        <a href="javascript:void(0)" id="nav-registry" onclick="showSection('registry')">3. Bailment Registry</a>
-    </nav>
-
-    <!-- SECTION 1: OVERVIEW -->
-    <div id="home" class="section active-section">
-        <div class="notice-box">
-            <strong>OPERATIONAL NOTICE:</strong> Established protocols govern administrative alignment and asset isolation standards[cite: 1]. Standardized procedures ensure structural parity across participating institutional entities through structured bailment frameworks[cite: 1]. Resource allocation is systematically optimized to maintain operational stability and structural integrity[cite: 1].
-        </div>
-        <h2 style="color: var(--sec-blue); border-bottom: 2px solid var(--sec-blue); padding-bottom: 10px;">Order of Alignment</h2>
-    
-    <p>The <strong>DB Precept</strong> serves as the foundational framework—defining the architectural standards required to ensure ledger accuracy and prevent systemic integration discrepancies[cite: 1].</p>
-    
-    <p>The <strong>ESTP Logic</strong> functions as the optimization engine, identifying and addressing structural variances within multi-token liquidity environments[cite: 1].</p>
-
-    <div style="background-color: var(--sec-gray); border-left: 5px solid var(--sec-blue); padding: 20px; margin: 25px 0; border-radius: 0 4px 4px 0;">
-        <p style="margin: 0;"><strong>Operational Focus:</strong> Resource allocation is structured around tiered institutional participation models to ensure systematic stability and sustainable protocol scaling[cite: 1].</p>
-    </div>
-
-    <p>Structured grace periods provide participating entities with a defined window to harmonize their operational ledgers with the DB Precept standards[cite: 1].</p></div>
-
-    <!-- SECTION 2: STATEMENTS OUTLET -->
-    <div id="statements" class="section">
-        <h2 style="color:var(--sec-blue); border-bottom: 2px solid var(--sec-blue); padding-bottom: 10px;">Chronological Record Archive</h2>
-        <p style="font-size: 13px; color: #666; margin-bottom: 25px; font-family: Arial, sans-serif;">
-            The following entries outline the verified chronological development of protocol standards and operational guidelines.
-        </p>
-
-        <div class="statement-entry">
-            <div class="date-tag">JUNE 17, 2026</div>
-            <div class="statement-content">
-                <h3>MEMORANDUM: Restructuring of the ESTP Institutional Bailment Track</h3>
-                <p><strong>Status: Active.</strong> Protocol pathways have been optimized into a rolling quarterly operational track to streamline integration for participating financial infrastructure entities. Access is secured under standardized quarterly terms, maintaining alignment with standard enterprise procurement frameworks while preserving the absolute parameters of the DB Precept[cite: 1].</p>
-            </div>
-        </div>
-
-        <div class="statement-entry">
-            <div class="date-tag">JUNE 17, 2026</div>
-            <div class="statement-content">
-                <h3>DIRECTIVE: Curriculum & Documentation Finalization</h3>
-                <p><strong>Status: Pending Publication.</strong> Compiling foundational modules detailing the DB Precept protocol and operational mechanics of the ESTP logic. This documentation establishes the baseline standard for asset isolation and structural parity within digital asset environments[cite: 1].</p>
-            </div>
-        </div>
-        
-        <div class="statement-entry">
-            <div class="date-tag">MAY 19, 2026</div>
-            <div class="statement-content">
-                <h3>NOTICE: Operational Scope & Resource Parameters</h3>
-                <p><strong>Status: Active.</strong> Formal definition of operational parameters, focusing resource allocation on primary institutional cohorts to ensure stability prior to broader protocol scaling[cite: 1].</p>
-            </div>
-        </div>
-        
-        <div class="statement-entry">
-            <div class="date-tag">MAY 19, 2026</div>
-            <div class="statement-content">
-                <h3>METRIC: Utility Grading Standard Release</h3>
-                <p><strong>Status: Active.</strong> Release of the updated utility grading standard, establishing a comprehensive diagnostic baseline for digital asset and protocol architectures[cite: 1].</p>
-            </div>
-        </div>
-        
-        <div class="statement-entry">
-            <div class="date-tag">MAY 12, 2026</div>
-            <div class="statement-content">
-                <h3>AUDIT: Layer-2 Liquidity Analysis</h3>
-                <p><strong>Status: Verified.</strong> Analysis of configuration synchronization across layer architectures, highlighting systemic considerations in protocol design and asset management[cite: 1].</p>
-            </div>
-        </div>
-
-        <div class="statement-entry">
-            <div class="date-tag">MAY 10, 2026</div>
-            <div class="statement-content">
-                <h3>AUDIT: Input Validation & Protocol Mechanics</h3>
-                <p><strong>Status: Logged.</strong> Review of input validation parameters and approval revocation mechanisms within decentralized liquidity frameworks[cite: 1].</p>
-            </div>
-        </div>
-
-        <div class="statement-entry">
-            <div class="date-tag">MAY 6, 2026</div>
-            <div class="statement-content">
-                <h3>COMMENCEMENT: Institutional Adjudication Standards</h3>
-                <p><strong>Status: Active.</strong> Initiation of formal protocol licensing frameworks and standardized operational oversight procedures[cite: 1].</p>
-            </div>
-        </div>
-        
-        <div class="statement-entry">
-            <div class="date-tag">MAY 4, 2026</div>
-            <div class="statement-content">
-                <h3>UPDATE: Institutional Seat Allocations</h3>
-                <p><strong>Status: Entered.</strong> Progression of institutional seat allocations and operational alignment parameters in accordance with protocol succession frameworks[cite: 1].</p>
-            </div>
-        </div>
-
-        <div class="statement-entry">
-            <div class="date-tag">APR 30, 2026</div>
-            <div class="statement-content">
-                <h3>DECREE: Mandatory Protocol Alignment</h3>
-                <p><strong>Status: Active.</strong> Issuance of structured multi-phase protocol guidelines designed to oversee digital asset remediation and standardization across participating platforms[cite: 1].</p>
-            </div>
-        </div>
-
-        <div class="statement-entry">
-            <div class="date-tag">APR 27, 2026</div>
-            <div class="statement-content">
-                <h3>NOTICE: Structural Realignment</h3>
-                <p><strong>Status: Entered.</strong> Formal logging of operational updates regarding administrative jurisdiction and framework succession[cite: 1].</p>
-            </div>
-        </div>
-
-        <div class="statement-entry">
-            <div class="date-tag">APR 22, 2026</div>
-            <div class="statement-content">
-                <h3>SERVICE: Notice of Endowment & Alignment</h3>
-                <p><strong>Status: Accepted.</strong> Formal delivery and documentation of institutional alignment notices under standard administrative guidelines[cite: 1].</p>
-            </div>
-        </div>
-
-        <div class="statement-entry">
-            <div class="date-tag">APR 18, 2026</div>
-            <div class="statement-content">
-                <h3>AUDIT: Cross-Chain Bridge Analysis</h3>
-                <p><strong>Incident Analysis:</strong> Technical review focusing on cross-chain asset capacity matching, bridge signaling synchronization, and liquidity pool verification protocols[cite: 1].</p>
-            </div>
-        </div>
-
-        <div class="statement-entry">
-            <div class="date-tag">APR 16, 2026</div>
-            <div class="statement-content">
-                <h3>PERFECTION: Security Interest & Record Filing</h3>
-                <p><strong>Status: Public Record.</strong> Perfection of foundational financial records and security interests supporting protocol standing and predictive logic frameworks[cite: 1].</p>
-            </div>
-        </div>
-
-        <div class="statement-entry">
-            <div class="date-tag">APR 14-15, 2026</div>
-            <div class="statement-content">
-                <h3>NOTICE: Industry Realignment & Domain Standards</h3>
-                <p><strong>Status: Confirmed.</strong> Implementation of standardized frameworks following comprehensive reviews of mathematical proof systems and signaling error metrics[cite: 1].</p>
-            </div>
-        </div>
-        
-        <div class="statement-entry">
-            <div class="date-tag">APR 13-14, 2026</div>
-            <div class="statement-content">
-                <h3>AUDIT: Temporal and Layer-2 Synchronization Review</h3>
-                <p><strong>Incident Analysis:</strong> Comprehensive diagnostic assessment evaluating desynchronization events and structural resilience across multi-layered networks[cite: 1].</p>
-            </div>
-        </div>
-
-        <div class="statement-entry">
-            <div class="date-tag">APR 03-04, 2026</div>
-            <div class="statement-content">
-                <h3>AUDIT: Systemic Resilience & Protocol Fallout</h3>
-                <p><strong>Incident Analysis:</strong> Evaluation of protocol stability, market volatility factors, and cross-protocol impact assessments[cite: 1].</p>
-            </div>
-        </div>
-        
-        <div class="statement-entry">
-            <div class="date-tag">APR 03, 2026</div>
-            <div class="statement-content">
-                <h3>NOTICE: Technical Knowledge Lodgement</h3>
-                <p><strong>Action:</strong> Presentation of consultative frameworks, ESTP logic models, and technical variables designed to enhance landscape stability[cite: 1].</p>
-            </div>
-        </div>
-
-        <div class="statement-entry">
-            <div class="date-tag">APR 01, 2026</div>
-            <div class="statement-content">
-                <h3>LODGEMENT: Mathematical Proof & Framework Filing</h3>
-                <p><strong>Status: Perfected.</strong> Initial filing establishing the proprietary framework for resolving mathematical signaling discrepancies within digital asset ecosystems[cite: 1].</p>
-            </div>
-        </div>
-
-        <div class="statement-entry">
-            <div class="date-tag">MAR 22, 2026</div>
-            <div class="statement-content">
-                <h3>LODGEMENT: Initial Consultation Program</h3>
-                <p><strong>Status: Perfected.</strong> Presentation of introductory protocol orientation programs designed to foster technical proficiency and collaborative standardization[cite: 1].</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- SECTION 3: BAILMENT REGISTRY -->
-    <div id="registry" class="section">
-        <h2 style="color:var(--sec-blue); border-bottom: 2px solid var(--sec-blue); padding-bottom: 10px;">Institutional Bailment Registry (Form BR-1)</h2>
-        <div class="notice-box" style="font-size:12px; background:var(--sec-gray); border-left-color:var(--sec-blue);">
-            This registry captures operational variables to determine seat eligibility. All submissions are evaluated through the DB Precept and ESTP Logic frameworks[cite: 1].
-        </div>
-        
-        <form action="mailto:akredd@dbprecept.us" method="post" enctype="text/plain" style="font-family: 'Segoe UI', Arial, sans-serif; max-width: 900px; margin: 0 auto; color: #1a1a1a;">
-    
-    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 35px;">
-        
-        <div style="display: flex; flex-direction: column;">
-            <label style="font-weight: 600; margin-bottom: 8px; color: var(--sec-blue); font-size: 11px; text-transform: uppercase;">Legal Entity Name</label>
-            <input type="text" name="Entity_Name" required style="padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px;">
-        </div>
-
-        <div style="display: flex; flex-direction: column;">
-            <label style="font-weight: 600; margin-bottom: 8px; color: var(--sec-blue); font-size: 11px; text-transform: uppercase;">Unique Entity ID (UEI) / EIN</label>
-            <input type="text" name="UEI_EIN" required style="padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px;">
-        </div>
-
-        <div style="display: flex; flex-direction: column;">
-            <label style="font-weight: 600; margin-bottom: 8px; color: var(--sec-blue); font-size: 11px; text-transform: uppercase;">Jurisdiction of Formation</label>
-            <input type="text" name="Jurisdiction" required style="padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px;">
-        </div>
-
-        <div style="display: flex; flex-direction: column;">
-            <label style="font-weight: 600; margin-bottom: 8px; color: var(--sec-blue); font-size: 11px; text-transform: uppercase;">Primary Digital Vault Address (Public)</label>
-            <input type="text" name="Vault_Address" required style="padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px;">
-        </div>
-
-        <div style="grid-column: span 2; display: flex; flex-direction: column;">
-            <label style="font-weight: 600; margin-bottom: 8px; color: var(--sec-blue); font-size: 11px; text-transform: uppercase;">Total Value of Asset Pool (Digital Units)</label>
-            <input type="text" name="Liquidity_Units" placeholder="For DBP Evaluation" required style="padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px;">
-        </div>
-
-        <div style="grid-column: span 2; display: flex; flex-direction: column;">
-            <label style="font-weight: 600; margin-bottom: 8px; color: var(--sec-blue); font-size: 11px; text-transform: uppercase;">Operating Duration in Possession of Digital Assets</label>
-            <input type="text" name="Time_in_Possession" placeholder="Number Of Months" required style="padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px;">
-        </div>
-
-        <div style="display: flex; flex-direction: column;">
-            <label style="font-weight: 600; margin-bottom: 8px; color: var(--sec-blue); font-size: 11px; text-transform: uppercase;">Operational History Status</label>
-            <select name="Error_Status" style="padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; background-color: #fff;">
-                <option value="preventative">Preventative Entry (Standard Integration)</option>
-                <option value="remedial">Remedial Entry (Active Optimization Required)</option>
-            </select>
-        </div>
-
-        <div style="display: flex; flex-direction: column;">
-            <label style="font-weight: 600; margin-bottom: 8px; color: var(--sec-blue); font-size: 11px; text-transform: uppercase;">Requested Alignment Level</label>
-            <select name="Tier_Level" required style="padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; background-color: #fff;">
-                <option value="">-- Select Tier Level --</option>
-                <option value="tier1">Tier 1 Institution</option>
-                <option value="tier2">Tier 2 Institution</option>
-                <option value="tier3">Tier 3 Institution</option>
-            </select>
-        </div>
-    </div>
-
-    <section style="padding: 30px; line-height: 1.6; background-color: #ffffff; border: 1px solid #d2dce6; margin-bottom: 35px; border-radius: 4px;">
-        <h3 style="color: var(--sec-blue); border-bottom: 2px solid var(--sec-blue); padding-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; margin-top: 0; font-size: 1.3em;">Technical Bailment & Institutional Occupancy</h3>
-        
-        <p>Bailment within this framework constitutes the formal containerization of digital assets under the immutable parameters of the <strong>DB Precept</strong>[cite: 1]. By securing the Electronic Settlement Trading Protocol (ESTP) logic, institutions ensure ledger parity, asset isolation, and protection from underlying host-chain vulnerabilities[cite: 1].</p>
-
-        <h4 style="color: var(--sec-blue); font-size: 1.1em; margin-top: 25px;">I. Architectural Isolation & Logic Access</h4>
-        <p>Institutions securing a Master Seat are granted the right to adapt operational <strong>ESTP execution layers</strong> to map seamlessly to internal infrastructure[cite: 1]. This right excludes the foundational <strong>DB Precepts</strong>, which govern the laws of ledger parity and remain permanently immutable[cite: 1]. Public test-net deployment is restricted; all integration must occur within secure, isolated environments[cite: 1].</p>
-
-        <h4 style="color: var(--sec-blue); font-size: 1.1em; margin-top: 25px;">II. Commercial Framework</h4>
-        <div style="display: flex; gap: 20px; margin: 20px 0; flex-wrap: wrap;">
-            <div style="flex: 1; min-width: 250px; background-color: var(--sec-gray); border-left: 5px solid var(--sec-blue); padding: 18px; border-radius: 0 4px 4px 0;">
-                <h5 style="margin-top: 0; color: var(--sec-blue); font-size: 1em;">Internal Operational Yield</h5>
-                <p style="font-size: 13px; margin-bottom: 0; color: #4a4a4a;">Master Seat occupants retain <strong>100%</strong> of operational efficiencies and transactional revenues derived from running internal transactions through the containerized ESTP logic layer[cite: 1].</p>
-            </div>
-            <div style="flex: 1; min-width: 250px; background-color: var(--sec-gray); border-left: 5px solid #555; padding: 18px; border-radius: 0 4px 4px 0;">
-                <h5 style="margin-top: 0; color: #333; font-size: 1em;">Downstream Sub-Bailment</h5>
-                <p style="font-size: 13px; margin-bottom: 0; color: #4a4a4a;">Occupants may act as strategic conduits. When licensing the protocol to secondary networks, the Bailee retains <strong>95%</strong> of gross revenues, with a fixed <strong>5%</strong> origination fee remitted to the Office[cite: 1].</p>
-            </div>
-        </div>
-
-        <h4 style="color: var(--sec-blue); font-size: 1.1em; margin-top: 25px;">III. Financial Allocation & Activation Parameters</h4>
-        <ul style="list-style-type: square; padding-left: 20px; margin-bottom: 0; color: #333; font-size: 14px;">
-            <li style="margin-bottom: 10px;"><strong>Operational Track (OpEx):</strong> Institutional Master Seats are structured as an operational expenditure secured via a fixed <strong>$49,500 quarterly allocation fee</strong> ($198,000 annualized baseline)[cite: 1].</li>
-            <li style="margin-bottom: 10px;"><strong>Renewal Cycle:</strong> Occupancy operates on a strict 90-day rolling cycle, subject to timely clearance of quarterly allocations[cite: 1].</li>
-            <li style="margin-bottom: 10px;"><strong>Direct Submission:</strong> Formal letters of intent and documentation must be routed through the primary administrative gateway at <strong>akredd@dbprecept.us</strong>[cite: 1].</li>
-        </ul>
-    </section>
-
-    <div style="display: flex; flex-direction: column; margin-bottom: 25px;">
-        <label style="font-weight: 600; margin-bottom: 8px; color: var(--sec-blue); font-size: 11px; text-transform: uppercase;">Institutional Acknowledgment</label>
-        <textarea name="Acknowledgment" rows="3" placeholder="I acknowledge the operational authority of the DB Precept and the ESTP Logic trade secret." required style="padding: 12px; border: 1px solid #ccc; border-radius: 4px; font-family: inherit; font-size: 14px; resize: vertical;"></textarea>
-    </div>
-
-    <button type="submit" style="width: 100%; padding: 16px; background-color: var(--sec-blue); color: #ffffff; border: none; border-radius: 4px; font-size: 15px; font-weight: bold; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; transition: background 0.2s;">
-        Lodge Registration & Forward to Administration
-    </button>
         </form>
     </div>
 
