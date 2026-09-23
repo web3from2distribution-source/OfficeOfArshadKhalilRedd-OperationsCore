@@ -2,39 +2,342 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.5">
-    <title>Office of Protocol Operations | The D.B Precept & The ESTP Logic ? https://jpaus-sovereign-ecosystem-portal-450085739243.us-west1.run.app/</title>
+    <meta name="viewport" content="width=device-width, initial-scale=0.8">
+    <title>Office of Protocol Operations | DB Precept & ESTP Logic</title>
     <style>
-        :root { --sec-blue: #003366; --sec-gray: #f9fbfd; --border: #d2dce6; --text: #222222; }
-        body { font-family: "Times New Roman", Times, serif; background-color: #ffffff; color: var(--text); margin: 0; padding: 0; line-height: 1.6; }
-        
-        /* Institutional Header Bar */
-        .header-bar { background: var(--sec-blue); color: white; padding: 12px 20px; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; font-family: Arial, sans-serif; text-align: center; }
-        
-        .wrapper { max-width: 1000px; margin: 0 auto; padding: 30px 20px; box-sizing: border-box; min-height: 100vh; }
-        
-        header { border-bottom: 3px solid var(--sec-blue); margin-bottom: 25px; padding-bottom: 15px; }
-        header h1 { margin: 0; font-size: 28px; font-weight: normal; color: var(--sec-blue); text-transform: uppercase; letter-spacing: 1.2px; }
-        header p { margin: 6px 0 0 0; font-style: italic; font-size: 14px; color: #555; }
+        :root { 
+            --bg-deep: #070a0d; 
+            --bg-card: #0a0f12; 
+            --turquoise: #00f2fe; 
+            --turquoise-dim: #00c6ff; 
+            --border: #14222b; 
+            --text-main: #c0d1d8; 
+            --text-bright: #ffffff; 
+            --text-muted: #6b828e; 
+        }
 
-        /* Forensic Navigation Grid */
-        nav { display: flex; flex-wrap: wrap; border: 1px solid var(--border); margin-bottom: 30px; background: var(--sec-gray); border-radius: 4px; overflow: hidden; }
-        nav a { padding: 15px; color: var(--sec-blue); text-decoration: none; font-weight: bold; font-size: 12px; text-transform: uppercase; border-right: 1px solid var(--border); flex: 1; text-align: center; font-family: Arial, sans-serif; min-width: 140px; transition: background 0.2s; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+            background-color: var(--bg-deep); 
+            color: var(--text-main); 
+            margin: 0; 
+            padding: 0; 
+            line-height: 1.6; 
+        }
+        
+        /* Institutional Dark Header Bar */
+        .header-bar { 
+            background: #040709; 
+            color: var(--turquoise); 
+            padding: 12px 20px; 
+            font-size: 11px; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            text-align: center; 
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .wrapper { 
+            max-width: 1000px; 
+            margin: 0 auto; 
+            padding: 40px 20px; 
+            box-sizing: border-box; 
+            min-height: 100vh; 
+        }
+        
+        header { 
+            border-bottom: 2px solid var(--turquoise); 
+            margin-bottom: 35px; 
+            padding-bottom: 20px; 
+        }
+        header h1 { 
+            margin: 0; 
+            font-size: 26px; 
+            font-weight: 300; 
+            color: var(--text-bright); 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+        }
+        header p { 
+            margin: 8px 0 0 0; 
+            font-size: 13px; 
+            color: var(--text-muted); 
+            letter-spacing: 0.5px;
+        }
+
+        /* Navigation Grid */
+        nav { 
+            display: flex; 
+            flex-wrap: wrap; 
+            border: 1px solid var(--border); 
+            margin-bottom: 35px; 
+            background: var(--bg-card); 
+            border-radius: 6px; 
+            overflow: hidden; 
+        }
+        nav a { 
+            padding: 16px; 
+            color: var(--text-muted); 
+            text-decoration: none; 
+            font-weight: 600; 
+            font-size: 11px; 
+            text-transform: uppercase; 
+            border-right: 1px solid var(--border); 
+            flex: 1; 
+            text-align: center; 
+            letter-spacing: 1px;
+            min-width: 140px; 
+            transition: all 0.2s ease; 
+        }
         nav a:last-child { border-right: none; }
-        nav a:hover, nav a.active { background: #fff; border-bottom: 3px solid var(--sec-blue); }
+        nav a:hover, nav a.active { 
+            background: #0d161c; 
+            color: var(--turquoise); 
+            border-bottom: 2px solid var(--turquoise); 
+        }
 
         .section { display: none; }
         .active-section { display: block; animation: fadeIn 0.3s ease-in; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        /* Notice & Decree Box */
-        .notice-box { background: #f4f7fa; border: 1px solid #d2dce6; border-left: 5px solid var(--sec-blue); padding: 22px; margin-bottom: 30px; font-size: 14px; color: #333; border-radius: 0 4px 4px 0; }
+        /* Notice Box */
+        .notice-box { 
+            background: var(--bg-card); 
+            border: 1px solid var(--border); 
+            border-left: 4px solid var(--turquoise); 
+            padding: 24px; 
+            margin-bottom: 30px; 
+            font-size: 14px; 
+            color: var(--text-main); 
+            border-radius: 0 6px 6px 0; 
+        }
+        .notice-box strong { color: var(--text-bright); }
 
+        h2 { color: var(--text-bright); font-weight: 400; text-transform: uppercase; letter-spacing: 1px; font-size: 1.2rem; }
+        
         /* Statements Ledger */
-        .statement-entry { border-bottom: 1px solid var(--border); padding: 22px 0; display: grid; grid-template-columns: 140px 1fr; gap: 20px; }
-        .date-tag { font-family: Arial, sans-serif; font-weight: bold; color: #555; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
-        .statement-content h3 { margin: 0 0 8px 0; font-size: 18px; color: var(--sec-blue); }
-        .statement-content p { margin: 0; font-size: 15px; color: #444; }
+        .statement-entry { 
+            border-bottom: 1px solid var(--border); 
+            padding: 24px 0; 
+            display: grid; 
+            grid-template-columns: 140px 1fr; 
+            gap: 20px; 
+        }
+        .date-tag { font-weight: 600; color: var(--turquoise); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
+        .statement-content h3 { margin: 0 0 8px 0; font-size: 16px; color: var(--text-bright); font-weight: 500; }
+        .statement-content p { margin: 0; font-size: 14px; color: var(--text-main); }
+
+        .footer { 
+            margin-top: 60px; 
+            font-size: 10px; 
+            text-align: center; 
+            border-top: 1px solid var(--border); 
+            padding-top: 30px; 
+            color: var(--text-muted); 
+            text-transform: uppercase; 
+            letter-spacing: 1.5px; 
+        }
+
+        @media (max-width: 600px) { 
+            .statement-entry { grid-template-columns: 1fr; gap: 8px; }
+            header h1 { font-size: 18px; }
+            nav a { min-width: 100%; border-right: none; border-bottom: 1px solid var(--border); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header-bar">Restricted Enclave | Protocol Operations</div>
+
+<div class="wrapper">
+    <header>
+        <h1>DB Precept & The ESTP Logic</h1>
+        <p>Sovereign Financial Frameworks & Asset Isolation Standards</p>
+    </header>
+
+    <nav>
+        <a href="javascript:void(0)" class="active" id="nav-home" onclick="showSection('home')">1. Architecture</a>
+        <a href="javascript:void(0)" id="nav-statements" onclick="showSection('statements')">2. Chronology</a>
+        <a href="javascript:void(0)" id="nav-registry" onclick="showSection('registry')">3. Sovereign Registry</a>
+    </nav>
+
+    <!-- SECTION 1: OVERVIEW -->
+    <div id="home" class="section active-section">
+        <div class="notice-box">
+            <strong>SELECTIVE ENCLAVE NOTICE:</strong> This portal operates under strict exclusivity parameters[cite: 1]. Access is reserved exclusively for sophisticated operators, protocol developers, and entities with defined technical mandates[cite: 1]. We do not seek to replace institutional authority in a legal sense, but to supersede it in a <strong>mathematical sense through uncompromised proof of ability</strong>.
+        </div>
+        
+        <h2 style="border-bottom: 1px solid var(--border); padding-bottom: 10px;">The Sovereignty Mandate</h2>
+    
+        <p>The <strong>DB Precept</strong> serves as the foundational architectural standard—ensuring absolute capital exit guarantees, user sovereignty, and immunity from commercial surveillance[cite: 1] through deterministic code rather than administrative compliance.</p>
+        
+        <p>The <strong>ESTP Logic</strong> operates as the high-tier diagnostic and optimization engine, isolating assets from host-chain vulnerabilities and multi-token liquidity discrepancies[cite: 1].</p>
+
+        <div style="background-color: var(--bg-card); border-left: 4px solid var(--turquoise); padding: 20px; margin: 25px 0; border-radius: 0 6px 6px 0; border: 1px solid var(--border);">
+            <p style="margin: 0; font-size: 14px;"><strong>Operational Philosophy:</strong> Selection is deliberate and absolute. We deal exclusively with operators who know precisely what they require and possess the technical clarity to execute within a closed-loop environment[cite: 1].</p>
+        </div>
+
+        <p>Participation is structured around high-tier autonomous master seats, ensuring zero exposure to public tracking heuristics or external centralized control points[cite: 1].</p>
+    </div>
+
+    <!-- SECTION 2: STATEMENTS OUTLET -->
+    <div id="statements" class="section">
+        <h2 style="border-bottom: 1px solid var(--border); padding-bottom: 10px;">Chronological Record Archive</h2>
+        <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 25px; text-transform: uppercase; letter-spacing: 0.5px;">
+            Verified architectural updates and protocol development milestones.
+        </p>
+
+        <div class="statement-entry">
+            <div class="date-tag">JUNE 17, 2026</div>
+            <div class="statement-content">
+                <h3>MEMORANDUM: Restructuring of the ESTP Institutional Bailment Track</h3>
+                <p><strong>Status: Active.</strong> Protocol pathways optimized into rolling quarterly operational tracks to streamline integration for private financial infrastructure[cite: 1].</p>
+            </div>
+        </div>
+
+        <div class="statement-entry">
+            <div class="date-tag">JUNE 17, 2026</div>
+            <div class="statement-content">
+                <h3>DIRECTIVE: Curriculum & Documentation Finalization</h3>
+                <p><strong>Status: Pending Publication.</strong> Compilation of foundational modules detailing the DB Precept protocol and ephemeral gateway routing mechanics[cite: 1].</p>
+            </div>
+        </div>
+        
+        <div class="statement-entry">
+            <div class="date-tag">MAY 19, 2026</div>
+            <div class="statement-content">
+                <h3>NOTICE: Operational Scope & Resource Parameters</h3>
+                <p><strong>Status: Active.</strong> Formal definition of operational parameters, focusing resource allocation on primary institutional cohorts[cite: 1].</p>
+            </div>
+        </div>
+        
+        <div class="statement-entry">
+            <div class="date-tag">MAY 12, 2026</div>
+            <div class="statement-content">
+                <h3>AUDIT: Layer-2 Liquidity Analysis</h3>
+                <p><strong>Status: Verified.</strong> Analysis of configuration synchronization across layer architectures, highlighting systemic considerations in protocol design[cite: 1].</p>
+            </div>
+        </div>
+
+        <div class="statement-entry">
+            <div class="date-tag">APR 16, 2026</div>
+            <div class="statement-content">
+                <h3>PERFECTION: Security Interest & Record Filing</h3>
+                <p><strong>Status: Public Record.</strong> Perfection of foundational financial records and security interests supporting protocol standing[cite: 1].</p>
+            </div>
+        </div>
+
+        <div class="statement-entry">
+            <div class="date-tag">APR 01, 2026</div>
+            <div class="statement-content">
+                <h3>LODGEMENT: Mathematical Proof & Framework Filing</h3>
+                <p><strong>Status: Perfected.</strong> Initial filing establishing proprietary frameworks for resolving operational signaling discrepancies[cite: 1].</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 3: BAILMENT REGISTRY -->
+    <div id="registry" class="section">
+        <h2 style="border-bottom: 1px solid var(--border); padding-bottom: 10px;">Institutional Bailment Registry (Form BR-1)</h2>
+        <div class="notice-box" style="font-size:13px;">
+            Submissions are rigorously vetted. Only operators who have verified parameters and precise technical needs will be cleared for admission[cite: 1].
+        </div>
+        
+        <form action="mailto:akredd@dbprecept.us" method="post" enctype="text/plain" style="max-width: 900px; margin: 0 auto;">
+    
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 35px;">
+                
+                <div style="display: flex; flex-direction: column;">
+                    <label style="font-weight: 600; margin-bottom: 8px; color: var(--turquoise); font-size: 11px; text-transform: uppercase; letter-spacing: 1px;">Legal Entity Name</label>
+                    <input type="text" name="Entity_Name" required style="padding: 12px; background: var(--bg-card); border: 1px solid var(--border); color: var(--text-bright); border-radius: 4px; font-size: 14px;">
+                </div>
+
+                <div style="display: flex; flex-direction: column;">
+                    <label style="font-weight: 600; margin-bottom: 8px; color: var(--turquoise); font-size: 11px; text-transform: uppercase; letter-spacing: 1px;">Unique Entity ID (UEI) / EIN</label>
+                    <input type="text" name="UEI_EIN" required style="padding: 12px; background: var(--bg-card); border: 1px solid var(--border); color: var(--text-bright); border-radius: 4px; font-size: 14px;">
+                </div>
+
+                <div style="display: flex; flex-direction: column;">
+                    <label style="font-weight: 600; margin-bottom: 8px; color: var(--turquoise); font-size: 11px; text-transform: uppercase; letter-spacing: 1px;">Jurisdiction of Formation</label>
+                    <input type="text" name="Jurisdiction" required style="padding: 12px; background: var(--bg-card); border: 1px solid var(--border); color: var(--text-bright); border-radius: 4px; font-size: 14px;">
+                </div>
+
+                <div style="display: flex; flex-direction: column;">
+                    <label style="font-weight: 600; margin-bottom: 8px; color: var(--turquoise); font-size: 11px; text-transform: uppercase; letter-spacing: 1px;">Primary Sovereign Vault Address</label>
+                    <input type="text" name="Vault_Address" required style="padding: 12px; background: var(--bg-card); border: 1px solid var(--border); color: var(--text-bright); border-radius: 4px; font-size: 14px;">
+                </div>
+
+                <div style="grid-column: span 2; display: flex; flex-direction: column;">
+                    <label style="font-weight: 600; margin-bottom: 8px; color: var(--turquoise); font-size: 11px; text-transform: uppercase; letter-spacing: 1px;">Target Asset Allocation / Parameters</label>
+                    <input type="text" name="Liquidity_Units" placeholder="Specify requirements for DBP evaluation" required style="padding: 12px; background: var(--bg-card); border: 1px solid var(--border); color: var(--text-bright); border-radius: 4px; font-size: 14px;">
+                </div>
+
+                <div style="display: flex; flex-direction: column;">
+                    <label style="font-weight: 600; margin-bottom: 8px; color: var(--turquoise); font-size: 11px; text-transform: uppercase; letter-spacing: 1px;">Integration Status</label>
+                    <select name="Error_Status" style="padding: 12px; background: var(--bg-card); border: 1px solid var(--border); color: var(--text-bright); border-radius: 4px; font-size: 14px;">
+                        <option value="preventative">Standard Enclave Entry</option>
+                        <option value="remedial">Remedial Architecture Optimization</option>
+                    </select>
+                </div>
+
+                <div style="display: flex; flex-direction: column;">
+                    <label style="font-weight: 600; margin-bottom: 8px; color: var(--turquoise); font-size: 11px; text-transform: uppercase; letter-spacing: 1px;">Requested Tier</label>
+                    <select name="Tier_Level" required style="padding: 12px; background: var(--bg-card); border: 1px solid var(--border); color: var(--text-bright); border-radius: 4px; font-size: 14px;">
+                        <option value="">-- Select Participation Tier --</option>
+                        <option value="tier1">Tier 1 Sovereign Operator</option>
+                        <option value="tier2">Tier 2 Enterprise Enclave</option>
+                        <option value="tier3">Tier 3 Strategic Partner</option>
+                    </select>
+                </div>
+            </div>
+
+            <section style="padding: 30px; background-color: var(--bg-card); border: 1px solid var(--border); margin-bottom: 35px; border-radius: 6px;">
+                <h3 style="color: var(--turquoise); border-bottom: 1px solid var(--border); padding-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; margin-top: 0; font-size: 1.1rem;">Technical Enclave Parameters</h3>
+                
+                <p style="font-size: 14px;">Containerization of digital assets under the immutable parameters of the <strong>DB Precept</strong> ensures absolute asset isolation and mathematical proof of execution, bypassing administrative friction entirely[cite: 1].</p>
+
+                <h4 style="color: var(--text-bright); font-size: 1rem; margin-top: 20px;">I. Commercial Framework & Allocation</h4>
+                <div style="display: flex; gap: 20px; margin: 20px 0; flex-wrap: wrap;">
+                    <div style="flex: 1; min-width: 250px; background-color: #070a0d; border-left: 4px solid var(--turquoise); padding: 18px; border-radius: 0 6px 6px 0; border: 1px solid var(--border);">
+                        <h5 style="margin-top: 0; color: var(--text-bright); font-size: 0.95rem;">Internal Yield Retention</h5>
+                        <p style="font-size: 13px; margin-bottom: 0; color: var(--text-muted);">Occupants retain <strong>100%</strong> of operational efficiencies and transactional parameters executed through containerized ESTP gateway logic[cite: 1].</p>
+                    </div>
+                </div>
+
+                <ul style="list-style-type: square; padding-left: 20px; margin-bottom: 0; color: var(--text-main); font-size: 13px;">
+                    <li style="margin-bottom: 8px;"><strong>Quarterly Allocation Fee:</strong> Master Seat occupancy is secured via a fixed <strong>$49,500 quarterly allocation fee</strong> ($198,000 annualized baseline)[cite: 1].</li>
+                    <li style="margin-bottom: 8px;"><strong>Direct Administration:</strong> All filings must route through <strong>akredd@dbprecept.us</strong>[cite: 1].</li>
+                </ul>
+            </section>
+
+            <div style="display: flex; flex-direction: column; margin-bottom: 25px;">
+                <label style="font-weight: 600; margin-bottom: 8px; color: var(--turquoise); font-size: 11px; text-transform: uppercase; letter-spacing: 1px;">Operator Acknowledgment</label>
+                <textarea name="Acknowledgment" rows="3" placeholder="I acknowledge the mathematical authority and sovereign execution parameters of the DB Precept and ESTP Logic." required style="padding: 12px; background: var(--bg-card); border: 1px solid var(--border); color: var(--text-bright); border-radius: 4px; font-family: inherit; font-size: 14px; resize: vertical;"></textarea>
+            </div>
+
+            <button type="submit" style="width: 100%; padding: 16px; background-color: var(--turquoise); color: #000000; border: none; border-radius: 4px; font-size: 14px; font-weight: 700; cursor: pointer; text-transform: uppercase; letter-spacing: 1.5px; transition: opacity 0.2s;">
+                Submit Enclave Application
+            </button>
+        </form>
+    </div>
+
+    <div class="footer">
+        © 2026 DB Preceptual | Office of Protocol Operations | akredd@dbprecept.us[cite: 1]
+    </div>
+</div>
+
+<script>
+    function showSection(id) {
+        document.querySelectorAll('.section').forEach(s => s.classList.remove('active-section'));
+        document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+        document.getElementById(id).classList.add('active-section');
+        document.getElementById('nav-'+id).classList.add('active');
+        window.scrollTo(0,0);
+    }
+</script>
+
+</body>
+</html>        .statement-content p { margin: 0; font-size: 15px; color: #444; }
 
         .footer { margin-top: 60px; font-size: 11px; text-align: center; border-top: 1px solid var(--border); padding-top: 30px; color: #777; text-transform: uppercase; letter-spacing: 1.2px; font-family: Arial, sans-serif; }
 
