@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE DBPRECEPT CLEARING HOUSE | Sovereign Security & EVM Permit Standard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Google Translate Script -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        void: '#030712',
+                        surface: '#0a192f',
+                        card: '#0f2b48',
+                        cardBorder: '#1e40af',
+                        cobalt: {
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            950: '#0f172a',
+                        },
+                        ice: {
+                            300: '#93c5fd',
+                            400: '#60a5fa',
+                            500: '#38bdf8',
+                        },
+                        platinum: {
+                            100: '#ffffff',
+                            200: '#f8fafc',
+                            300: '#e2e8f0',
+                            400: '#cbd5e1',
+                            500: '#94a3b8',
+                        }
+                    },
+                    fontFamily: {
+                        cinzel: ['Cinzel', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #030712;
+            color: #f8fafc;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Custom Scrollbars */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #030712; }
+        ::-webkit-scrollbar-thumb { background: #1e40af; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3b82f6; }
+
+        /* Hide Google Translate Navbar */
+        .goog-te-banner-frame { display: none !important; }
+        body { top: 0px !important; }
+        #google_translate_element { display: none !important; }
+
+        .orb-glow {
+            box-shadow: 0 0 60px rgba(59, 130, 246, 0.45), inset 0 0 35px rgba(147, 197, 253, 0.3);
+        }
+
+        .ice-gradient-text {
+            background: linear-gradient(135deg, #ffffff 0%, #93c5fd 50%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .platinum-gradient-text {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 60%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .cobalt-border-glow {
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            transition: all 0.3s ease;
+        }
+        .cobalt-border-glow:hover {
+            border-color: rgba(96, 165, 250, 0.8);
+            box-shadow: 0 0 25px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Code Syntax Formatting */
+        .sol-keyword { color: #60a5fa; font-weight: 600; }
+        .sol-type { color: #38bdf8; }
+        .sol-func { color: #93c5fd; }
+        .sol-string { color: #f8fafc; }
+        .sol-comment { color: #64748b; font-style: italic; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-cobalt-500 selection:text-white">
+
+    <!-- Receiver element for Google Translate engine -->
+    <div id="google_translate_element"></div>
+
+    <!-- Institutional Header Ticker -->
+    <div class="bg-surface border-b border-cardBorder/60 py-2 px-4 text-xs font-mono text-platinum-400">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center gap-3">
+                <span class="inline-block w-2.5 h-2.5 rounded-full bg-ice-400 animate-pulse"></span>
+                <span class="tracking-widest uppercase font-semibold text-platinum-100">THE DBPRECEPT CLEARING HOUSE</span>
+                <span class="text-platinum-500">&bull;</span>
+                <a href="https://dbprecept.us" target="_blank" rel="noopener noreferrer" class="text-ice-300 hover:text-white underline transition-colors">
+                    DBPRECEPT.US
+                </a>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="text-platinum-400 font-mono text-[11px]">
+                    STATUS: <strong class="text-ice-300">DEFAULT-DENY GUARD ACTIVE</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation Header -->
+    <header class="border-b border-cardBorder/80 bg-void/90 backdrop-blur-md sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3 cursor-pointer" onclick="showIntroView()">
+                <!-- Emblem Logo Image Link -->
+                <div class="w-12 h-12 rounded-full border border-cobalt-500/60 overflow-hidden bg-surface flex items-center justify-center p-0.5 shadow-lg">
+                    <img src="https://share.gemini.google/T10EC1Rysop6" alt="THE DBPRECEPT CLEARING HOUSE Emblem" class="w-full h-full object-cover rounded-full" onerror="this.onerror=null; this.src='https://placehold.co/100x100/0a192f/60a5fa?text=THE+DBP';">
+                </div>
+                <div>
+                    <h1 class="font-cinzel text-lg sm:text-2xl font-bold tracking-wider platinum-gradient-text uppercase">
+                        THE DBPRECEPT CLEARING HOUSE
+                    </h1>
+                    <p class="text-[10px] font-mono tracking-widest text-ice-300 uppercase">
+                        Sovereign Verification &amp; Security Standard
+                    </p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <!-- Vertical Dropdown Language Menu Button -->
+                <div class="relative">
+                    <button id="langDropdownBtn" onclick="toggleLanguageDropdown()" class="px-3.5 py-2 text-xs font-mono rounded bg-card hover:bg-surface border border-cardBorder text-ice-300 font-medium transition-all flex items-center gap-2">
+                        <svg class="w-4 h-4 text-ice-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
+                        <span>LANGUAGES</span>
+                        <svg class="w-3 h-3 text-platinum-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+
+                    <!-- Vertical Scrollable Language Selector -->
+                    <div id="langDropdownMenu" class="hidden absolute right-0 mt-2 w-56 bg-surface border border-cardBorder rounded-lg shadow-2xl py-2 z-50 max-h-80 overflow-y-auto">
+                        <div class="px-3 py-1.5 text-[10px] font-mono text-ice-300 font-bold border-b border-cardBorder/60 uppercase">
+                            Select Translation Target
+                        </div>
+                        <button onclick="triggerLanguageChange('en')" class="w-full text-left px-4 py-2 text-xs font-mono text-platinum-200 hover:bg-card hover:text-ice-300 transition-colors flex items-center justify-between">
+                            <span>English</span><span class="text-[10px] text-platinum-500">EN</span>
+                        </button>
+                        <button onclick="triggerLanguageChange('zh-CN')" class="w-full text-left px-4 py-2 text-xs font-mono text-platinum-200 hover:bg-card hover:text-ice-300 transition-colors flex items-center justify-between">
+                            <span>Simplified Chinese (简体中文)</span><span class="text-[10px] text-platinum-500">ZH</span>
+                        </button>
+                        <button onclick="triggerLanguageChange('es')" class="w-full text-left px-4 py-2 text-xs font-mono text-platinum-200 hover:bg-card hover:text-ice-300 transition-colors flex items-center justify-between">
+                            <span>Spanish (Español)</span><span class="text-[10px] text-platinum-500">ES</span>
+                        </button>
+                        <button onclick="triggerLanguageChange('ar')" class="w-full text-left px-4 py-2 text-xs font-mono text-platinum-200 hover:bg-card hover:text-ice-300 transition-colors flex items-center justify-between">
+                            <span>Arabic (العربية)</span><span class="text-[10px] text-platinum-500">AR</span>
+                        </button>
+                        <button onclick="triggerLanguageChange('hi')" class="w-full text-left px-4 py-2 text-xs font-mono text-platinum-200 hover:bg-card hover:text-ice-300 transition-colors flex items-center justify-between">
+                            <span>Hindi (हिन्दी)</span><span class="text-[10px] text-platinum-500">HI</span>
+                        </button>
+                        <button onclick="triggerLanguageChange('fr')" class="w-full text-left px-4 py-2 text-xs font-mono text-platinum-200 hover:bg-card hover:text-ice-300 transition-colors flex items-center justify-between">
+                            <span>French (Français)</span><span class="text-[10px] text-platinum-500">FR</span>
+                        </button>
+                        <button onclick="triggerLanguageChange('ru')" class="w-full text-left px-4 py-2 text-xs font-mono text-platinum-200 hover:bg-card hover:text-ice-300 transition-colors flex items-center justify-between">
+                            <span>Russian (Русский)</span><span class="text-[10px] text-platinum-500">RU</span>
+                        </button>
+                        <button onclick="triggerLanguageChange('ja')" class="w-full text-left px-4 py-2 text-xs font-mono text-platinum-200 hover:bg-card hover:text-ice-300 transition-colors flex items-center justify-between">
+                            <span>Japanese (日本語)</span><span class="text-[10px] text-platinum-500">JA</span>
+                        </button>
+                        <button onclick="triggerLanguageChange('de')" class="w-full text-left px-4 py-2 text-xs font-mono text-platinum-200 hover:bg-card hover:text-ice-300 transition-colors flex items-center justify-between">
+                            <span>German (Deutsch)</span><span class="text-[10px] text-platinum-500">DE</span>
+                        </button>
+                        <button onclick="triggerLanguageChange('pt')" class="w-full text-left px-4 py-2 text-xs font-mono text-platinum-200 hover:bg-card hover:text-ice-300 transition-colors flex items-center justify-between">
+                            <span>Portuguese (Português)</span><span class="text-[10px] text-platinum-500">PT</span>
+                        </button>
+                        <button onclick="triggerLanguageChange('ko')" class="w-full text-left px-4 py-2 text-xs font-mono text-platinum-200 hover:bg-card hover:text-ice-300 transition-colors flex items-center justify-between">
+                            <span>Korean (한국어)</span><span class="text-[10px] text-platinum-500">KO</span>
+                        </button>
+                    </div>
+                </div>
+
+                <button onclick="toggleView()" class="hidden sm:flex px-3.5 py-2 text-xs font-mono rounded bg-card hover:bg-surface border border-cardBorder text-platinum-300 font-medium transition-all">
+                    TOGGLE VIEW
+                </button>
+                <button onclick="openModal()" class="px-4 py-2 text-xs font-mono rounded bg-cobalt-600 hover:bg-cobalt-700 text-white font-semibold transition-all shadow-lg border border-cobalt-500 flex items-center gap-2">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                    INSTAGRAM INTAKE
+                </button>
+            </div>
+        </div>
+
+        <!-- Terminal Workspace Navigation Tabs -->
+        <div id="terminalTabBar" class="hidden bg-surface/80 border-t border-cardBorder transition-all">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex overflow-x-auto gap-2 text-xs font-mono py-1.5 scrollbar-none">
+                <button id="tab-doctrine" onclick="setActiveTerminalTab('doctrine')" class="term-tab-btn px-4 py-2 rounded text-ice-300 bg-card border border-cardBorder font-semibold whitespace-nowrap">
+                    1. OVERVIEW &amp; DOCTRINE
+                </button>
+                <button id="tab-audit" onclick="setActiveTerminalTab('audit')" class="term-tab-btn px-4 py-2 rounded text-platinum-400 hover:text-white hover:bg-card/60 whitespace-nowrap transition-colors">
+                    2. SECURITY AUDIT MATRIX
+                </button>
+                <button id="tab-kickstart" onclick="setActiveTerminalTab('kickstart')" class="term-tab-btn px-4 py-2 rounded text-platinum-400 hover:text-white hover:bg-card/60 whitespace-nowrap transition-colors">
+                    3. KICKSTART PERMITS (ALL 7 CONTRACTS)
+                </button>
+                <button id="tab-marketplace" onclick="setActiveTerminalTab('marketplace')" class="term-tab-btn px-4 py-2 rounded text-platinum-400 hover:text-white hover:bg-card/60 whitespace-nowrap transition-colors">
+                    4. COMMERCIAL DIRECTORY
+                </button>
+                <button id="tab-bot" onclick="setActiveTerminalTab('bot')" class="term-tab-btn px-4 py-2 rounded text-platinum-400 hover:text-white hover:bg-card/60 whitespace-nowrap transition-colors">
+                    5. AGENT RUNTIME BOT
+                </button>
+                <button id="tab-intake" onclick="setActiveTerminalTab('intake')" class="term-tab-btn px-4 py-2 rounded text-platinum-400 hover:text-white hover:bg-card/60 whitespace-nowrap transition-colors">
+                    6. INSTAGRAM GATEKEEPER
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- VIEW 1: LANDING SPLASH GATE -->
+    <main id="introView" class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col justify-center">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-card/60 border border-cardBorder rounded-2xl p-6 sm:p-12 relative overflow-hidden shadow-2xl">
+            <div class="absolute -right-32 -top-32 w-96 h-96 bg-cobalt-600/20 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -left-32 -bottom-32 w-96 h-96 bg-ice-500/15 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="lg:col-span-7 space-y-8 z-10">
+                <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-surface border border-cobalt-500/50 text-ice-300 text-xs font-mono">
+                    <span class="w-2 h-2 rounded-full bg-ice-400 animate-ping"></span>
+                    INSTITUTIONAL EVM VERIFICATION CLEARING HOUSE
+                </div>
+                
+                <div class="space-y-3">
+                    <h2 class="font-cinzel text-4xl sm:text-6xl font-black tracking-tight text-white leading-tight">
+                        THE DBPRECEPT<br>CLEARING HOUSE
+                    </h2>
+                    <p class="text-lg text-ice-300 tracking-widest font-semibold font-mono">
+                        SOVEREIGN AI &amp; EVM SECURITY STANDARD
+                    </p>
+                </div>
+
+                <p class="text-xl font-serif italic text-ice-300 border-l-2 border-cobalt-500 pl-4">
+                    "RES NON NEGOTIANTUR" — Actions, Code &amp; State Proofs Are Non-Negotiable
+                </p>
+
+                <p class="text-platinum-300 text-base sm:text-lg leading-relaxed font-sans">
+                    Guiding the protocol under the statuesque vigilance of the blue &amp; white predator stork emblem, <strong class="text-white">THE DBPRECEPT CLEARING HOUSE</strong> establishes a strict <strong class="text-ice-300 font-mono">Default-Deny</strong> verification boundary for smart contract execution and autonomous AI agent operations.
+                </p>
+
+                <div class="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+                    <button onclick="showTerminalView()" class="px-8 py-4 rounded-lg bg-cobalt-600 hover:bg-cobalt-700 text-white font-mono text-sm font-bold tracking-wider transition-all shadow-xl border border-cobalt-500 flex items-center justify-center gap-3 group">
+                        <span>ENTER CLEARING HOUSE TERMINAL</span>
+                        <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </button>
+                    <button onclick="openModal()" class="px-6 py-4 rounded-lg bg-surface hover:bg-card border border-cardBorder text-platinum-200 font-mono text-xs font-semibold tracking-wider transition-all text-center">
+                        INSTAGRAM MANUAL SCREENING
+                    </button>
+                </div>
+            </div>
+
+            <!-- EMBLEM LOGO & 3D CRYSTAL ORB CANVAS DISPLAY -->
+            <div class="lg:col-span-5 flex flex-col items-center justify-center z-10 py-4 space-y-6">
+                <!-- Sovereign Predator Stork Official Emblem Display -->
+                <div class="relative w-64 h-64 sm:w-72 sm:h-72 rounded-full border-2 border-cobalt-500/80 p-2 bg-surface shadow-2xl flex items-center justify-center overflow-hidden">
+                    <img src="https://share.gemini.google/T10EC1Rysop6" alt="THE DBPRECEPT CLEARING HOUSE Emblem" class="w-full h-full object-cover rounded-full shadow-inner" onerror="this.onerror=null; this.src='https://placehold.co/400x400/0a192f/60a5fa?text=THE+DBPRECEPT';">
+                </div>
+
+                <!-- 3D Interactive Crystal Orb Canvas -->
+                <div class="relative w-72 h-72 flex items-center justify-center">
+                    <canvas id="orbCanvas" width="300" height="300" class="w-full h-full cursor-pointer rounded-full orb-glow"></canvas>
+                    <div class="absolute bottom-2 text-center text-[11px] font-mono text-platinum-300 bg-void/90 px-3.5 py-1 rounded-full border border-cardBorder shadow-lg">
+                        CRYSTAL SEAL: <span class="text-ice-300 font-bold animate-pulse">OSCILLATING / VERIFIED</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pillar Features -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+            <div class="bg-card border border-cardBorder rounded-xl p-6 space-y-3 cobalt-border-glow">
+                <div class="text-cobalt-400 font-mono font-bold text-xs tracking-widest uppercase">Pillar 01</div>
+                <h3 class="font-cinzel text-lg font-bold text-white">Default-Deny Execution</h3>
+                <p class="text-xs text-platinum-400 leading-relaxed">
+                    All EVM calls are rejected outright until explicit EIP-712 permit proofs are validated by authorized signers.
+                </p>
+            </div>
+            <div class="bg-card border border-cardBorder rounded-xl p-6 space-y-3 cobalt-border-glow">
+                <div class="text-ice-300 font-mono font-bold text-xs tracking-widest uppercase">Pillar 02</div>
+                <h3 class="font-cinzel text-lg font-bold text-white">7 Kickstart Permits</h3>
+                <p class="text-xs text-platinum-400 leading-relaxed">
+                    Featuring complete sub-100 line 0%-fee EVM permits including the ILUSD Token Protocol deployment on Arbitrum.
+                </p>
+            </div>
+            <div class="bg-card border border-cardBorder rounded-xl p-6 space-y-3 cobalt-border-glow">
+                <div class="text-platinum-300 font-mono font-bold text-xs tracking-widest uppercase">Pillar 03</div>
+                <h3 class="font-cinzel text-lg font-bold text-white">Human Intake Screening</h3>
+                <p class="text-xs text-platinum-400 leading-relaxed">
+                    Manual intake portal maintained via Instagram to ensure human-in-the-loop validation for all directory listings.
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <!-- VIEW 2: TERMINAL WORKSPACE -->
+    <main id="terminalView" class="hidden flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <!-- TERMINAL TAB 1: OVERVIEW & DOCTRINE -->
+        <section id="content-doctrine" class="term-content space-y-8">
+            <div class="bg-card border border-cardBorder rounded-xl p-6 sm:p-8 space-y-6">
+                <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-4 border-b border-cardBorder pb-6">
+                    <div>
+                        <h2 class="font-cinzel text-2xl sm:text-3xl font-bold text-white">Institutional Clearing Authority &amp; Doctrine</h2>
+                        <p class="text-xs font-mono text-ice-300 mt-1">THE DBPRECEPT CLEARING HOUSE &bull; SOVEREIGN CLEARING REGISTRY</p>
+                    </div>
+                    <button onclick="showIntroView()" class="px-3.5 py-1.5 rounded bg-surface hover:bg-cardBorder border border-cardBorder text-xs font-mono text-platinum-300">
+                        &larr; Return to Landing View
+                    </button>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-platinum-300 leading-relaxed font-sans">
+                    <div class="space-y-4">
+                        <h3 class="font-cinzel text-lg font-bold text-white">Operational Posture &amp; Standards</h3>
+                        <p>
+                            <strong class="text-ice-300">THE DBPRECEPT CLEARING HOUSE</strong> establishes a deterministic verification boundary for smart contract execution. Guided by the predator stork emblem, the clearing house operates under an uncompromising Default-Deny execution policy.
+                        </p>
+                        <p>
+                            Contracts registered through our standard carry a hardcoded zero percent base fee, single-action boundary locks, and isolated state scopes to prevent exploit propagation.
+                        </p>
+                    </div>
+
+                    <div class="space-y-4 bg-surface p-5 rounded-lg border border-cardBorder">
+                        <h3 class="font-cinzel text-lg font-bold text-ice-300">Core Architecture Principles</h3>
+                        <p class="text-xs text-platinum-400">
+                            Our clearing framework mandates strict modular isolation, zero base fees, and default-deny protection across all EVM environments:
+                        </p>
+                        <ul class="text-xs font-mono space-y-2 text-platinum-300">
+                            <li class="flex items-start gap-2">
+                                <span class="text-ice-300">&bull;</span>
+                                <div><strong class="text-white">Zero Base Fee Guarantee:</strong> All 7 core permits operate with 0% protocol overhead.</div>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-ice-300">&bull;</span>
+                                <div><strong class="text-white">Single-Action Limits:</strong> Key methods are locked to single-nonce or single-block scopes.</div>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-ice-300">&bull;</span>
+                                <div><strong class="text-white">Human-In-The-Loop:</strong> Critical registrations pass manual Instagram intake screening.</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TERMINAL TAB 2: EXHAUSTIVE SECURITY AUDIT MATRIX -->
+        <section id="content-audit" class="term-content hidden space-y-8">
+            <div class="border-b border-cardBorder pb-4">
+                <h2 class="font-cinzel text-2xl font-bold text-white">Exhaustive Security Audit Matrix</h2>
+                <p class="text-xs font-mono text-platinum-400 mt-1">Comprehensive Default-Deny classification breakdown for EVM smart contracts.</p>
+            </div>
+
+            <!-- Category 1: Prohibited Vectors -->
+            <div class="bg-card border border-cobalt-600/60 rounded-xl p-6 space-y-6">
+                <div class="flex items-center gap-3 border-b border-cardBorder pb-4">
+                    <span class="px-2.5 py-1 rounded bg-cobalt-950 border border-cobalt-600 text-cobalt-400 font-mono text-xs font-bold">CATEGORY 1</span>
+                    <h3 class="font-cinzel text-xl font-bold text-white">Strictly Prohibited (Unacceptable) Vectors</h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-mono">
+                    <div class="bg-surface p-4 rounded border border-cardBorder space-y-1.5">
+                        <div class="text-cobalt-400 font-bold">1. delegatecall Exclusions</div>
+                        <p class="text-platinum-400 font-sans">Arbitrary delegatecall execution allows untrusted code injection into state storage context. Strictly denied unless bound to immutable proxies.</p>
+                    </div>
+                    <div class="bg-surface p-4 rounded border border-cardBorder space-y-1.5">
+                        <div class="text-cobalt-400 font-bold">2. selfdestruct Opcodes</div>
+                        <p class="text-platinum-400 font-sans">Opcode selfdestruct introduces unexpected state erasure and contract deletion vulnerabilities. Prohibited across all permits.</p>
+                    </div>
+                    <div class="bg-surface p-4 rounded border border-cardBorder space-y-1.5">
+                        <div class="text-cobalt-400 font-bold">3. Centralized onlyOwner Admin Keys</div>
+                        <p class="text-platinum-400 font-sans">Unrestricted single-key owner privileges create rug-pull vectors. Admin actions must pass multi-sig or timelock permits.</p>
+                    </div>
+                    <div class="bg-surface p-4 rounded border border-cardBorder space-y-1.5">
+                        <div class="text-cobalt-400 font-bold">4. tx.origin Authentication</div>
+                        <p class="text-platinum-400 font-sans">Using tx.origin for authorization exposes contracts to phishing reentrancy attacks. Must use msg.sender or signed permits.</p>
+                    </div>
+                    <div class="bg-surface p-4 rounded border border-cardBorder space-y-1.5">
+                        <div class="text-cobalt-400 font-bold">5. Inline Assembly (assembly { })</div>
+                        <p class="text-platinum-400 font-sans">Unchecked low-level Yul assembly bypasses Solidity compiler safety checks. Prohibited except in audited cryptographic libs.</p>
+                    </div>
+                    <div class="bg-surface p-4 rounded border border-cardBorder space-y-1.5">
+                        <div class="text-cobalt-400 font-bold">6. Dynamic create / create2 Instantiation</div>
+                        <p class="text-platinum-400 font-sans">Unbounded dynamic contract creation allows rogue deployments without pre-registration. DENIED by default.</p>
+                    </div>
+                    <div class="bg-surface p-4 rounded border border-cardBorder space-y-1.5">
+                        <div class="text-cobalt-400 font-bold">7. Block Timestamp / Number Reliance</div>
+                        <p class="text-platinum-400 font-sans">Miner-manipulable timestamp logic for randomness or precise locks is denied; must use cryptographic chain Oracles.</p>
+                    </div>
+                    <div class="bg-surface p-4 rounded border border-cardBorder space-y-1.5">
+                        <div class="text-cobalt-400 font-bold">8. Unchecked Low-Level Calls</div>
+                        <p class="text-platinum-400 font-sans">Raw target.call{value: val}("") without explicit boolean return checks and state mutation locks is strictly forbidden.</p>
+                    </div>
+                    <div class="bg-surface p-4 rounded border border-cardBorder space-y-1.5 md:col-span-2">
+                        <div class="text-cobalt-400 font-bold">9. Uninitialized Storage Pointers</div>
+                        <p class="text-platinum-400 font-sans">Dangling storage struct pointers overwrite contract state variables unexpectedly. Compiler enforcement mandatory.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category 2: Adaptive Guards -->
+            <div class="bg-card border border-ice-500/40 rounded-xl p-6 space-y-6">
+                <div class="flex items-center gap-3 border-b border-cardBorder pb-4">
+                    <span class="px-2.5 py-1 rounded bg-surface border border-ice-400 text-ice-300 font-mono text-xs font-bold">CATEGORY 2</span>
+                    <h3 class="font-cinzel text-xl font-bold text-white">Adaptive (50/50 Trusted) Sequence Guards</h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-mono">
+                    <div class="bg-surface p-4 rounded border border-cardBorder space-y-1.5">
+                        <div class="text-ice-300 font-bold">1. Reentrancy Lock Standard</div>
+                        <p class="text-platinum-400 font-sans">Enforces nonReentrant status guards across state-changing functions to prevent recursive call hijacking.</p>
+                    </div>
+                    <div class="bg-surface p-4 rounded border border-cardBorder space-y-1.5">
+                        <div class="text-ice-300 font-bold">2. Check-Effects-Interactions Pattern</div>
+                        <p class="text-platinum-400 font-sans">Requires state updates to execute before external asset transfers occur, mitigating reentrancy vulnerabilities.</p>
+                    </div>
+                    <div class="bg-surface p-4 rounded border border-cardBorder space-y-1.5">
+                        <div class="text-ice-300 font-bold">3. Immutable Constants Configuration</div>
+                        <p class="text-platinum-400 font-sans">Critical addresses, clearing house roots, and protocol parameters must be assigned immutably at deployment.</p>
+                    </div>
+                    <div class="bg-surface p-4 rounded border border-cardBorder space-y-1.5">
+                        <div class="text-ice-300 font-bold">4. Single-Action Execution Boundaries</div>
+                        <p class="text-platinum-400 font-sans">Restricts key transaction calls to single nonces or single-block boundaries to neutralize front-running bots.</p>
+                    </div>
+                    <div class="bg-surface p-4 rounded border border-cardBorder space-y-1.5 md:col-span-2">
+                        <div class="text-ice-300 font-bold">5. Lead-Auditor Catch-All Manual Review</div>
+                        <p class="text-platinum-400 font-sans">Any unlisted or edge-case execution vector defaults to DENIED until reviewed and cleared by lead clearing auditors.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TERMINAL TAB 3: KICKSTART PERMITS (ALL 7 CONTRACTS EXHAUSTIVELY CODED) -->
+        <section id="content-kickstart" class="term-content hidden space-y-8">
+            <div class="border-b border-cardBorder pb-4 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div>
+                    <h2 class="font-cinzel text-2xl font-bold text-white">Kickstart EVM Permits (0% Base Fee)</h2>
+                    <p class="text-xs font-mono text-platinum-400 mt-1">Exhaustive sub-100 line Solidity permits (Contracts 1 through 7 written in full).</p>
+                </div>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-surface border border-cobalt-500 text-ice-300 font-mono text-xs">
+                    <span>FEE: <strong>0.00% HARDCODED BASE</strong></span>
+                </div>
+            </div>
+
+            <!-- Sub Navigation -->
+            <div class="flex overflow-x-auto gap-2 pb-2 text-xs font-mono border-b border-cardBorder/60 scrollbar-none">
+                <button onclick="switchPermitCategory('cat-ilusd')" class="permit-cat-btn px-3.5 py-2 rounded bg-cobalt-600 text-white font-bold whitespace-nowrap">1. ILUSD Protocol (Arbitrum)</button>
+                <button onclick="switchPermitCategory('cat-messaging')" class="permit-cat-btn px-3.5 py-2 rounded bg-card text-platinum-400 hover:text-white whitespace-nowrap">2. Instant Messaging</button>
+                <button onclick="switchPermitCategory('cat-vault')" class="permit-cat-btn px-3.5 py-2 rounded bg-card text-platinum-400 hover:text-white whitespace-nowrap">3. Vault Transfer</button>
+                <button onclick="switchPermitCategory('cat-minting')" class="permit-cat-btn px-3.5 py-2 rounded bg-card text-platinum-400 hover:text-white whitespace-nowrap">4. Derivative Mint</button>
+                <button onclick="switchPermitCategory('cat-social')" class="permit-cat-btn px-3.5 py-2 rounded bg-card text-platinum-400 hover:text-white whitespace-nowrap">5. Social Anchor</button>
+                <button onclick="switchPermitCategory('cat-session')" class="permit-cat-btn px-3.5 py-2 rounded bg-card text-platinum-400 hover:text-white whitespace-nowrap">6. Session Timelock</button>
+                <button onclick="switchPermitCategory('cat-revocation')" class="permit-cat-btn px-3.5 py-2 rounded bg-card text-platinum-400 hover:text-white whitespace-nowrap">7. Emergency Isolation</button>
+            </div>
+
+            <!-- PERMIT 1: ILUSD PROTOCOL (ARBITRUM) -->
+            <div id="cat-ilusd" class="permit-category-content space-y-6">
+                <div class="bg-card border border-cardBorder rounded-xl p-6 space-y-4">
+                    <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2">
+                        <div>
+                            <h3 class="font-cinzel text-xl font-bold text-ice-300">01. ILUSDTokenProtocol.sol (Arbitrum Deployment)</h3>
+                            <p class="text-xs font-mono text-platinum-400">Sovereign Stable-Asset Engine &amp; Creator Admin Minting</p>
+                        </div>
+                        <button onclick="copyCode('code-ilusd')" class="px-3.5 py-1.5 rounded bg-surface hover:bg-cardBorder border border-cardBorder text-xs font-mono text-platinum-200">
+                            Copy Code
+                        </button>
+                    </div>
+
+                    <div class="bg-surface p-4 rounded-lg border border-cardBorder space-y-2 text-xs font-sans text-platinum-300">
+                        <strong class="text-white font-mono">Arbitrum Network Setup &amp; Purpose:</strong>
+                        <p>
+                            Represents your historical ILUSD token protocol on Arbitrum Mainnet/One (Chain ID: 42161). Enforces sovereign stable-asset backing with zero-admin post-mint rules and strict creator privileges under Default-Deny clearing rules.
+                        </p>
+                    </div>
+
+                    <pre id="code-ilusd" class="bg-void p-4 rounded-lg border border-cardBorder text-xs font-mono overflow-x-auto text-platinum-300">
+<span class="sol-comment">// SPDX-License-Identifier: MIT</span>
+<span class="sol-keyword">pragma solidity</span> ^0.8.20;
+
+<span class="sol-comment">/// @title ILUSDTokenProtocol - Creator Deployment on Arbitrum</span>
+<span class="sol-comment">/// @notice Sovereign asset permit engine under Default-Deny clearing rules</span>
+<span class="sol-keyword">contract</span> ILUSDTokenProtocol {
+    <span class="sol-type">string</span> <span class="sol-keyword">public constant</span> name = <span class="sol-string">"Interlocked USD"</span>;
+    <span class="sol-type">string</span> <span class="sol-keyword">public constant</span> symbol = <span class="sol-string">"ILUSD"</span>;
+    <span class="sol-type">uint8</span> <span class="sol-keyword">public constant</span> decimals = 18;
+    <span class="sol-type">uint256</span> <span class="sol-keyword">public</span> totalSupply;
+
+    <span class="sol-type">address</span> <span class="sol-keyword">public immutable</span> creatorAdmin;
+    <span class="sol-type">mapping</span>(<span class="sol-type">address</span> => <span class="sol-type">uint256</span>) <span class="sol-keyword">public</span> balanceOf;
+    <span class="sol-type">mapping</span>(<span class="sol-type">address</span> => <span class="sol-type">mapping</span>(<span class="sol-type">address</span> => <span class="sol-type">uint256</span>)) <span class="sol-keyword">public</span> allowance;
+
+    <span class="sol-keyword">event</span> Transfer(<span class="sol-type">address indexed</span> from, <span class="sol-type">address indexed</span> to, <span class="sol-type">uint256</span> value);
+    <span class="sol-keyword">event</span> Approval(<span class="sol-type">address indexed</span> owner, <span class="sol-type">address indexed</span> spender, <span class="sol-type">uint256</span> value);
+    <span class="sol-keyword">event</span> CreatorMint(<span class="sol-type">address indexed</span> recipient, <span class="sol-type">uint256</span> amount);
+
+    <span class="sol-keyword">constructor</span>() {
+        creatorAdmin = msg.sender;
+    }
+
+    <span class="sol-keyword">modifier</span> <span class="sol-func">onlyCreatorAdmin</span>() {
+        <span class="sol-func">require</span>(msg.sender == creatorAdmin, <span class="sol-string">"ILUSD: UNAUTHORIZED_CREATOR"</span>);
+        _;
+    }
+
+    <span class="sol-keyword">function</span> <span class="sol-func">mint</span>(<span class="sol-type">address</span> recipient, <span class="sol-type">uint256</span> amount) <span class="sol-keyword">external</span> onlyCreatorAdmin {
+        totalSupply += amount;
+        balanceOf[recipient] += amount;
+        <span class="sol-keyword">emit</span> CreatorMint(recipient, amount);
+        <span class="sol-keyword">emit</span> Transfer(address(0), recipient, amount);
+    }
+
+    <span class="sol-keyword">function</span> <span class="sol-func">transfer</span>(<span class="sol-type">address</span> recipient, <span class="sol-type">uint256</span> amount) <span class="sol-keyword">external returns</span> (<span class="sol-type">bool</span>) {
+        <span class="sol-func">require</span>(balanceOf[msg.sender] >= amount, <span class="sol-string">"ILUSD: INSUFFICIENT_BALANCE"</span>);
+        balanceOf[msg.sender] -= amount;
+        balanceOf[recipient] += amount;
+        <span class="sol-keyword">emit</span> Transfer(msg.sender, recipient, amount);
+        <span class="sol-keyword">return true</span>;
+    }
+
+    <span class="sol-keyword">function</span> <span class="sol-func">approve</span>(<span class="sol-type">address</span> spender, <span class="sol-type">uint256</span> amount) <span class="sol-keyword">external returns</span> (<span class="sol-type">bool</span>) {
+        allowance[msg.sender][spender] = amount;
+        <span class="sol-keyword">emit</span> Approval(msg.sender, spender, amount);
+        <span class="sol-keyword">return true</span>;
+    }
+}</pre>
+                </div>
+            </div>
+
+            <!-- PERMIT 2: INSTANT MESSAGING -->
+            <div id="cat-messaging" class="permit-category-content hidden space-y-6">
+                <div class="bg-card border border-cardBorder rounded-xl p-6 space-y-4">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <h3 class="font-cinzel text-xl font-bold text-ice-300">02. DBPreceptMessagingPermit.sol</h3>
+                            <p class="text-xs font-mono text-platinum-400">Decoupled Sub-100 Line EVM Payload Delivery Contract</p>
+                        </div>
+                        <button onclick="copyCode('code-messaging')" class="px-3.5 py-1.5 rounded bg-surface border border-cardBorder text-xs font-mono text-platinum-200">Copy Code</button>
+                    </div>
+                    <pre id="code-messaging" class="bg-void p-4 rounded-lg border border-cardBorder text-xs font-mono overflow-x-auto text-platinum-300">
+<span class="sol-comment">// SPDX-License-Identifier: MIT</span>
+<span class="sol-keyword">pragma solidity</span> ^0.8.20;
+
+<span class="sol-comment">/// @title DBPreceptMessagingPermit - Decoupled On-Chain Message Dispatch</span>
+<span class="sol-keyword">contract</span> DBPreceptMessagingPermit {
+    <span class="sol-type">address</span> <span class="sol-keyword">public immutable</span> clearingHouseAdmin;
+    <span class="sol-type">mapping</span>(<span class="sol-type">bytes32</span> => <span class="sol-type">bool</span>) <span class="sol-keyword">public</span> executedPermits;
+
+    <span class="sol-keyword">event</span> MessageDispatched(<span class="sol-type">bytes32 indexed</span> permitHash, <span class="sol-type">address indexed</span> sender, <span class="sol-type">string</span> payload);
+
+    <span class="sol-keyword">constructor</span>() {
+        clearingHouseAdmin = msg.sender;
+    }
+
+    <span class="sol-keyword">function</span> <span class="sol-func">dispatchVerifiedMessage</span>(<span class="sol-type">string memory</span> payload, <span class="sol-type">uint256</span> nonce) <span class="sol-keyword">external</span> {
+        <span class="sol-type">bytes32</span> permitHash = <span class="sol-func">keccak256</span>(<span class="sol-func">abi.encodePacked</span>(msg.sender, payload, nonce));
+        <span class="sol-func">require</span>(!executedPermits[permitHash], <span class="sol-string">"DBP: PERMIT_ALREADY_USED"</span>);
+        executedPermits[permitHash] = <span class="sol-type">true</span>;
+        <span class="sol-keyword">emit</span> MessageDispatched(permitHash, msg.sender, payload);
+    }
+}</pre>
+                </div>
+            </div>
+
+            <!-- PERMIT 3: ISOLATED VAULT TRANSFER -->
+            <div id="cat-vault" class="permit-category-content hidden space-y-6">
+                <div class="bg-card border border-cardBorder rounded-xl p-6 space-y-4">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <h3 class="font-cinzel text-xl font-bold text-ice-300">03. DBPreceptVaultTransferPermit.sol</h3>
+                            <p class="text-xs font-mono text-platinum-400">Zero-Fee Isolated Asset Transfer Guard with Reentrancy Locks</p>
+                        </div>
+                        <button onclick="copyCode('code-vault')" class="px-3.5 py-1.5 rounded bg-surface border border-cardBorder text-xs font-mono text-platinum-200">Copy Code</button>
+                    </div>
+                    <pre id="code-vault" class="bg-void p-4 rounded-lg border border-cardBorder text-xs font-mono overflow-x-auto text-platinum-300">
+<span class="sol-comment">// SPDX-License-Identifier: MIT</span>
+<span class="sol-keyword">pragma solidity</span> ^0.8.20;
+
+<span class="sol-comment">/// @title DBPreceptVaultTransferPermit - Non-Reentrant Asset Routing</span>
+<span class="sol-keyword">contract</span> DBPreceptVaultTransferPermit {
+    <span class="sol-type">uint256</span> <span class="sol-keyword">private constant</span> _NOT_ENTERED = 1;
+    <span class="sol-type">uint256</span> <span class="sol-keyword">private constant</span> _ENTERED = 2;
+    <span class="sol-type">uint256</span> <span class="sol-keyword">private</span> _status;
+
+    <span class="sol-type">address</span> <span class="sol-keyword">public immutable</span> vaultOwner;
+    <span class="sol-type">mapping</span>(<span class="sol-type">bytes32</span> => <span class="sol-type">bool</span>) <span class="sol-keyword">public</span> processedTransfers;
+
+    <span class="sol-keyword">event</span> VaultTransferExecuted(<span class="sol-type">address indexed</span> recipient, <span class="sol-type">uint256</span> amount, <span class="sol-type">bytes32</span> transferHash);
+
+    <span class="sol-keyword">constructor</span>() {
+        vaultOwner = msg.sender;
+        _status = _NOT_ENTERED;
+    }
+
+    <span class="sol-keyword">modifier</span> <span class="sol-func">nonReentrant</span>() {
+        <span class="sol-func">require</span>(_status != _ENTERED, <span class="sol-string">"DBP: REENTRANCY_GUARD_TRIGGERED"</span>);
+        _status = _ENTERED;
+        _;
+        _status = _NOT_ENTERED;
+    }
+
+    <span class="sol-keyword">function</span> <span class="sol-func">executeVaultTransfer</span>(<span class="sol-type">address payable</span> recipient, <span class="sol-type">uint256</span> amount, <span class="sol-type">uint256</span> nonce) <span class="sol-keyword">external</span> nonReentrant {
+        <span class="sol-func">require</span>(msg.sender == vaultOwner, <span class="sol-string">"DBP: UNAUTHORIZED_VAULT_OWNER"</span>);
+        <span class="sol-type">bytes32</span> transferHash = <span class="sol-func">keccak256</span>(<span class="sol-func">abi.encodePacked</span>(recipient, amount, nonce));
+        <span class="sol-func">require</span>(!processedTransfers[transferHash], <span class="sol-string">"DBP: DUPLICATE_TRANSFER_PERMIT"</span>);
+        
+        processedTransfers[transferHash] = <span class="sol-type">true</span>;
+        (<span class="sol-type">bool</span> success, ) = recipient.<span class="sol-func">call</span>{value: amount}(<span class="sol-string">""</span>);
+        <span class="sol-func">require</span>(success, <span class="sol-string">"DBP: ETH_TRANSFER_FAILED"</span>);
+        <span class="sol-keyword">emit</span> VaultTransferExecuted(recipient, amount, transferHash);
+    }
+
+    <span class="sol-keyword">receive</span>() <span class="sol-keyword">external payable</span> {}
+}</pre>
+                </div>
+            </div>
+
+            <!-- PERMIT 4: SOVEREIGN DERIVATIVE MINTING -->
+            <div id="cat-minting" class="permit-category-content hidden space-y-6">
+                <div class="bg-card border border-cardBorder rounded-xl p-6 space-y-4">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <h3 class="font-cinzel text-xl font-bold text-ice-300">04. DBPreceptDerivativeMintPermit.sol</h3>
+                            <p class="text-xs font-mono text-platinum-400">Single-Action Bounded Derivative Minting Logic</p>
+                        </div>
+                        <button onclick="copyCode('code-minting')" class="px-3.5 py-1.5 rounded bg-surface border border-cardBorder text-xs font-mono text-platinum-200">Copy Code</button>
+                    </div>
+                    <pre id="code-minting" class="bg-void p-4 rounded-lg border border-cardBorder text-xs font-mono overflow-x-auto text-platinum-300">
+<span class="sol-comment">// SPDX-License-Identifier: MIT</span>
+<span class="sol-keyword">pragma solidity</span> ^0.8.20;
+
+<span class="sol-comment">/// @title DBPreceptDerivativeMintPermit - Cap-Enforced Single-Action Minting</span>
+<span class="sol-keyword">contract</span> DBPreceptDerivativeMintPermit {
+    <span class="sol-type">address</span> <span class="sol-keyword">public immutable</span> minterAuthority;
+    <span class="sol-type">uint256</span> <span class="sol-keyword">public constant</span> MAX_DERIVATIVE_SUPPLY = 1000000 * 1e18;
+    <span class="sol-type">uint256</span> <span class="sol-keyword">public</span> currentMintedSupply;
+
+    <span class="sol-type">mapping</span>(<span class="sol-type">address</span> => <span class="sol-type">bool</span>) <span class="sol-keyword">public</span> singleActionClaimed;
+
+    <span class="sol-keyword">event</span> DerivativeMinted(<span class="sol-type">address indexed</span> beneficiary, <span class="sol-type">uint256</span> amount);
+
+    <span class="sol-keyword">constructor</span>() {
+        minterAuthority = msg.sender;
+    }
+
+    <span class="sol-keyword">function</span> <span class="sol-func">mintBoundedDerivative</span>(<span class="sol-type">address</span> beneficiary, <span class="sol-type">uint256</span> amount) <span class="sol-keyword">external</span> {
+        <span class="sol-func">require</span>(msg.sender == minterAuthority, <span class="sol-string">"DBP: UNAUTHORIZED_MINTER"</span>);
+        <span class="sol-func">require</span>(!singleActionClaimed[beneficiary], <span class="sol-string">"DBP: SINGLE_ACTION_EXCEEDED"</span>);
+        <span class="sol-func">require</span>(currentMintedSupply + amount <= MAX_DERIVATIVE_SUPPLY, <span class="sol-string">"DBP: SUPPLY_CAP_EXCEEDED"</span>);
+
+        singleActionClaimed[beneficiary] = <span class="sol-type">true</span>;
+        currentMintedSupply += amount;
+        <span class="sol-keyword">emit</span> DerivativeMinted(beneficiary, amount);
+    }
+}</pre>
+                </div>
+            </div>
+
+            <!-- PERMIT 5: SOCIAL IDENTITY ATTESTATION -->
+            <div id="cat-social" class="permit-category-content hidden space-y-6">
+                <div class="bg-card border border-cardBorder rounded-xl p-6 space-y-4">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <h3 class="font-cinzel text-xl font-bold text-ice-300">05. DBPreceptSocialVerifyPermit.sol</h3>
+                            <p class="text-xs font-mono text-platinum-400">Off-Chain Manual Instagram Screening Hash Verification</p>
+                        </div>
+                        <button onclick="copyCode('code-social')" class="px-3.5 py-1.5 rounded bg-surface border border-cardBorder text-xs font-mono text-platinum-200">Copy Code</button>
+                    </div>
+                    <pre id="code-social" class="bg-void p-4 rounded-lg border border-cardBorder text-xs font-mono overflow-x-auto text-platinum-300">
+<span class="sol-comment">// SPDX-License-Identifier: MIT</span>
+<span class="sol-keyword">pragma solidity</span> ^0.8.20;
+
+<span class="sol-comment">/// @title DBPreceptSocialVerifyPermit - Manual Screening Identity Anchor</span>
+<span class="sol-keyword">contract</span> DBPreceptSocialVerifyPermit {
+    <span class="sol-type">address</span> <span class="sol-keyword">public immutable</span> verifierGatekeeper;
+    <span class="sol-type">mapping</span>(<span class="sol-type">address</span> => <span class="sol-type">bytes32</span>) <span class="sol-keyword">public</span> verifiedSocialHashes;
+
+    <span class="sol-keyword">event</span> IdentityAttested(<span class="sol-type">address indexed</span> agentAddress, <span class="sol-type">bytes32</span> igHandleHash);
+
+    <span class="sol-keyword">constructor</span>() {
+        verifierGatekeeper = msg.sender;
+    }
+
+    <span class="sol-keyword">function</span> <span class="sol-func">attestSocialIdentity</span>(<span class="sol-type">address</span> agentAddress, <span class="sol-type">string memory</span> igHandle) <span class="sol-keyword">external</span> {
+        <span class="sol-func">require</span>(msg.sender == verifierGatekeeper, <span class="sol-string">"DBP: UNAUTHORIZED_GATEKEEPER"</span>);
+        <span class="sol-type">bytes32</span> handleHash = <span class="sol-func">keccak256</span>(<span class="sol-func">abi.encodePacked</span>(igHandle));
+        verifiedSocialHashes[agentAddress] = handleHash;
+        <span class="sol-keyword">emit</span> IdentityAttested(agentAddress, handleHash);
+    }
+}</pre>
+                </div>
+            </div>
+
+            <!-- PERMIT 6: SESSION TIMELOCK & EPHEMERAL GUARD -->
+            <div id="cat-session" class="permit-category-content hidden space-y-6">
+                <div class="bg-card border border-cardBorder rounded-xl p-6 space-y-4">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <h3 class="font-cinzel text-xl font-bold text-ice-300">06. DBPreceptSessionExpirePermit.sol</h3>
+                            <p class="text-xs font-mono text-platinum-400">Time-Bounded Self-Purging Ephemeral State Lock</p>
+                        </div>
+                        <button onclick="copyCode('code-session')" class="px-3.5 py-1.5 rounded bg-surface border border-cardBorder text-xs font-mono text-platinum-200">Copy Code</button>
+                    </div>
+                    <pre id="code-session" class="bg-void p-4 rounded-lg border border-cardBorder text-xs font-mono overflow-x-auto text-platinum-300">
+<span class="sol-comment">// SPDX-License-Identifier: MIT</span>
+<span class="sol-keyword">pragma solidity</span> ^0.8.20;
+
+<span class="sol-comment">/// @title DBPreceptSessionExpirePermit - Ephemeral Session Auto-Lock</span>
+<span class="sol-keyword">contract</span> DBPreceptSessionExpirePermit {
+    <span class="sol-keyword">struct</span> Session {
+        <span class="sol-type">uint64</span> expirationTimestamp;
+        <span class="sol-type">bool</span> active;
+    }
+
+    <span class="sol-type">mapping</span>(<span class="sol-type">address</span> => Session) <span class="sol-keyword">public</span> agentSessions;
+
+    <span class="sol-keyword">event</span> SessionStarted(<span class="sol-type">address indexed</span> agent, <span class="sol-type">uint64</span> expiresAt);
+    <span class="sol-keyword">event</span> SessionPurged(<span class="sol-type">address indexed</span> agent);
+
+    <span class="sol-keyword">function</span> <span class="sol-func">startSession</span>(<span class="sol-type">uint64</span> durationSeconds) <span class="sol-keyword">external</span> {
+        <span class="sol-type">uint64</span> expiresAt = <span class="sol-type">uint64</span>(block.timestamp) + durationSeconds;
+        agentSessions[msg.sender] = Session({ expirationTimestamp: expiresAt, active: <span class="sol-type">true</span> });
+        <span class="sol-keyword">emit</span> SessionStarted(msg.sender, expiresAt);
+    }
+
+    <span class="sol-keyword">function</span> <span class="sol-func">validateActiveSession</span>(<span class="sol-type">address</span> agent) <span class="sol-keyword">external view returns</span> (<span class="sol-type">bool</span>) {
+        Session <span class="sol-keyword">memory</span> s = agentSessions[agent];
+        <span class="sol-keyword">if</span> (!s.active || block.timestamp > s.expirationTimestamp) {
+            <span class="sol-keyword">return false</span>;
+        }
+        <span class="sol-keyword">return true</span>;
+    }
+}</pre>
+                </div>
+            </div>
+
+            <!-- PERMIT 7: EMERGENCY ISOLATION & REVOCATION -->
+            <div id="cat-revocation" class="permit-category-content hidden space-y-6">
+                <div class="bg-card border border-cardBorder rounded-xl p-6 space-y-4">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <h3 class="font-cinzel text-xl font-bold text-ice-300">07. DBPreceptRevocationLockPermit.sol</h3>
+                            <p class="text-xs font-mono text-platinum-400">Human-In-The-Loop Emergency Isolation Mechanism</p>
+                        </div>
+                        <button onclick="copyCode('code-revocation')" class="px-3.5 py-1.5 rounded bg-surface border border-cardBorder text-xs font-mono text-platinum-200">Copy Code</button>
+                    </div>
+                    <pre id="code-revocation" class="bg-void p-4 rounded-lg border border-cardBorder text-xs font-mono overflow-x-auto text-platinum-300">
+<span class="sol-comment">// SPDX-License-Identifier: MIT</span>
+<span class="sol-keyword">pragma solidity</span> ^0.8.20;
+
+<span class="sol-comment">/// @title DBPreceptRevocationLockPermit - Emergency Freeze Circuit-Breaker</span>
+<span class="sol-keyword">contract</span> DBPreceptRevocationLockPermit {
+    <span class="sol-type">address</span> <span class="sol-keyword">public immutable</span> clearingHouseEmergencyAdmin;
+    <span class="sol-type">bool</span> <span class="sol-keyword">public</span> globalCircuitBreakerTriggered;
+    <span class="sol-type">mapping</span>(<span class="sol-type">address</span> => <span class="sol-type">bool</span>) <span class="sol-keyword">public</span> revokedAgents;
+
+    <span class="sol-keyword">event</span> AgentRevoked(<span class="sol-type">address indexed</span> agent);
+    <span class="sol-keyword">event</span> EmergencyGlobalFreezeTriggered();
+
+    <span class="sol-keyword">constructor</span>() {
+        clearingHouseEmergencyAdmin = msg.sender;
+    }
+
+    <span class="sol-keyword">modifier</span> <span class="sol-func">onlyEmergencyAdmin</span>() {
+        <span class="sol-func">require</span>(msg.sender == clearingHouseEmergencyAdmin, <span class="sol-string">"DBP: UNAUTHORIZED_EMERGENCY_ADMIN"</span>);
+        _;
+    }
+
+    <span class="sol-keyword">function</span> <span class="sol-func">revokeAgentTarget</span>(<span class="sol-type">address</span> agent) <span class="sol-keyword">external</span> onlyEmergencyAdmin {
+        revokedAgents[agent] = <span class="sol-type">true</span>;
+        <span class="sol-keyword">emit</span> AgentRevoked(agent);
+    }
+
+    <span class="sol-keyword">function</span> <span class="sol-func">triggerGlobalFreeze</span>() <span class="sol-keyword">external</span> onlyEmergencyAdmin {
+        globalCircuitBreakerTriggered = <span class="sol-type">true</span>;
+        <span class="sol-keyword">emit</span> EmergencyGlobalFreezeTriggered();
+    }
+}</pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- TERMINAL TAB 4: COMMERCIAL DIRECTORY -->
+        <section id="content-marketplace" class="term-content hidden space-y-8">
+            <div class="border-b border-cardBorder pb-4 flex justify-between items-center">
+                <div>
+                    <h2 class="font-cinzel text-2xl font-bold text-white">Developer Commercial Directory</h2>
+                    <p class="text-xs font-mono text-platinum-400 mt-1">Fee-enabled commercial listings registered by independent developers.</p>
+                </div>
+                <span class="px-3 py-1 rounded bg-surface border border-cobalt-500 text-ice-300 font-mono text-xs">COMMERCIAL DIVISION</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-card border border-cardBorder rounded-xl p-6 space-y-3">
+                    <div class="flex justify-between items-start">
+                        <h3 class="font-cinzel text-lg font-bold text-ice-300">DBP-TollGate-Commercial.sol</h3>
+                        <span class="px-2 py-0.5 rounded bg-surface border border-cardBorder font-mono text-[10px] text-platinum-400">FEE: 0.001 ETH / CALL</span>
+                    </div>
+                    <p class="text-xs text-platinum-300 font-sans">Monetized execution gate requiring micro-payments from autonomous agents for every authorized transaction.</p>
+                </div>
+
+                <div class="bg-card border border-cardBorder rounded-xl p-6 space-y-3">
+                    <div class="flex justify-between items-start">
+                        <h3 class="font-cinzel text-lg font-bold text-ice-300">DBP-RevenueSplitter-v1.sol</h3>
+                        <span class="px-2 py-0.5 rounded bg-surface border border-cardBorder font-mono text-[10px] text-platinum-400">FEE: 1.5% REV SHARE</span>
+                    </div>
+                    <p class="text-xs text-platinum-300 font-sans">Automated revenue splitter distributing protocol proceeds between agent operators and smart contract creators.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TERMINAL TAB 5: AGENT RUNTIME BOT -->
+        <section id="content-bot" class="term-content hidden space-y-8">
+            <div class="border-b border-cardBorder pb-4">
+                <h2 class="font-cinzel text-2xl font-bold text-white">Agent Runtime JavaScript Integration</h2>
+                <p class="text-xs font-mono text-platinum-400 mt-1">Default-deny bot wrapper enforcing pre-flight EVM permit validation before transaction broadcast.</p>
+            </div>
+
+            <div class="bg-card border border-cardBorder rounded-xl p-6 space-y-4">
+                <div class="flex justify-between items-center">
+                    <h3 class="font-mono text-sm font-bold text-ice-300">DBPAgentRuntimeWrapper.js</h3>
+                    <button onclick="copyCode('code-js-bot')" class="px-3.5 py-1.5 rounded bg-surface border border-cardBorder text-xs font-mono text-platinum-200">Copy JS Code</button>
+                </div>
+                <pre id="code-js-bot" class="bg-void p-4 rounded-lg border border-cardBorder text-xs font-mono overflow-x-auto text-platinum-300">
+<span class="sol-comment">/**
+ * THE DBPRECEPT CLEARING HOUSE - AI Agent Default-Deny Runtime Wrapper
+ */</span>
+<span class="sol-keyword">const</span> { ethers } = <span class="sol-func">require</span>(<span class="sol-string">"ethers"</span>);
+
+<span class="sol-keyword">class</span> <span class="sol-type">DBPAgentRuntime</span> {
+    <span class="sol-keyword">constructor</span>(signer, clearingHouseAddress) {
+        <span class="sol-keyword">this</span>.signer = signer;
+        <span class="sol-keyword">this</span>.clearingHouse = clearingHouseAddress;
+    }
+
+    <span class="sol-keyword">async</span> <span class="sol-func">verifyAndExecute</span>(targetContract, actionPayload, permitNonce) {
+        console.log(<span class="sol-string">"[DBP] EVALUATING ACTION UNDER DEFAULT-DENY PARADIGM..."</span>);
+        <span class="sol-keyword">const</span> permitHash = ethers.solidityPackedKeccak256(
+            [<span class="sol-string">"address"</span>, <span class="sol-string">"bytes"</span>, <span class="sol-string">"uint256"</span>],
+            [<span class="sol-keyword">await</span> <span class="sol-keyword">this</span>.signer.getAddress(), actionPayload, permitNonce]
+        );
+        <span class="sol-keyword">const</span> signature = <span class="sol-keyword">await</span> <span class="sol-keyword">this</span>.signer.signMessage(ethers.getBytes(permitHash));
+        <span class="sol-keyword">return</span> { permitHash, signature, status: <span class="sol-string">"PERMIT_APPROVED"</span> };
+    }
+}
+module.exports = DBPAgentRuntime;</pre>
+            </div>
+        </section>
+
+        <!-- TERMINAL TAB 6: INSTAGRAM GATEKEEPER -->
+        <section id="content-intake" class="term-content hidden space-y-8">
+            <div class="border-b border-cardBorder pb-4">
+                <h2 class="font-cinzel text-2xl font-bold text-white">Instagram Manual Gatekeeper &amp; Screening Portal</h2>
+                <p class="text-xs font-mono text-platinum-400 mt-1">Human-in-the-loop verification intake for developer listings and institution onboarding.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-card border border-cardBorder rounded-xl p-8">
+                <div class="space-y-4">
+                    <h3 class="font-cinzel text-xl font-bold text-ice-300">Manual Intake Screening Requirement</h3>
+                    <p class="text-xs text-platinum-300 leading-relaxed font-sans">
+                        To maintain institutional standards and prevent automated spam, all contract verifications and commercial directory listings must complete manual human-in-the-loop screening via Instagram.
+                    </p>
+                    <ul class="text-xs font-mono text-platinum-400 space-y-2 list-disc list-inside">
+                        <li>Official IG Portal: <strong class="text-white">@DDE_ClearingHouse</strong></li>
+                        <li>Direct Intake Link: <a href="https://www.instagram.com/dde_clearinghouse?rpxt=cW9kN2o1dDFxajJj" target="_blank" class="text-ice-300 underline">Instagram Portal</a></li>
+                        <li>Documentation Mirror: <strong class="text-white">dbprecept.us</strong></li>
+                    </ul>
+                    <div class="pt-2">
+                        <button onclick="openModal()" class="px-6 py-3 rounded bg-cobalt-600 hover:bg-cobalt-700 text-white font-mono text-xs font-bold transition-all">
+                            OPEN INSTAGRAM INTAKE MODAL &rarr;
+                        </button>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center justify-center p-6 bg-surface border border-cardBorder rounded-xl text-center space-y-3">
+                    <div class="w-36 h-36 bg-void border border-cobalt-500/40 rounded flex items-center justify-center p-2">
+                        <svg class="w-full h-full text-ice-300" fill="currentColor" viewBox="0 0 24 24"><path d="M3 3h8v8H3V3zm2 2v4h4V5H5zm8-2h8v8h-8V3zm2 2v4h4V5h-4zM3 13h8v8H3v-8zm2 2v4h4v-4H5zm13-2h3v2h-3v-2zm-3 0h2v3h-2v-3zm0 4h3v2h-3v-2zm3 2h3v3h-3v-3zm-3 1h2v2h-2v-2zm-3-5h2v2h-2v-2zm0 3h2v4h-2v-4z"/></svg>
+                    </div>
+                    <p class="text-[11px] font-mono text-platinum-400">Scan to access Instagram Portal</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Modal for Instagram Intake -->
+    <div id="contactModal" class="fixed inset-0 bg-void/85 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-card border border-cardBorder rounded-xl max-w-lg w-full p-6 space-y-6 shadow-2xl relative">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-platinum-400 hover:text-white font-mono text-lg">✕</button>
+            
+            <div class="border-b border-cardBorder pb-3">
+                <h3 class="font-cinzel text-xl font-bold text-white">THE DBPRECEPT INTAKE PORTAL</h3>
+                <p class="text-xs font-mono text-ice-300 mt-1">Manual Human-in-the-Loop Screening Gatekeeper</p>
+            </div>
+
+            <div class="space-y-4 text-xs font-sans text-platinum-300">
+                <p>
+                    All verification requests, contract registrations, and clearance inquiries are processed manually via Instagram to guarantee high-touch institutional screening.
+                </p>
+
+                <div class="bg-surface p-4 rounded-lg border border-cardBorder space-y-2 font-mono text-[11px]">
+                    <div class="text-ice-300 font-bold">Primary Instagram Portal:</div>
+                    <a href="https://www.instagram.com/dde_clearinghouse?rpxt=cW9kN2o1dDFxajJj" target="_blank" class="text-cobalt-400 hover:underline block font-semibold">https://www.instagram.com/dde_clearinghouse?rpxt=cW9kN2o1dDFxajJj</a>
+                    <div class="text-ice-300 font-bold pt-2">Documentation Mirror:</div>
+                    <a href="https://dbprecept.us" target="_blank" class="text-platinum-300 hover:underline block">https://dbprecept.us</a>
+                </div>
+
+                <div class="p-3 bg-surface border border-cobalt-500/40 rounded text-platinum-400 font-mono text-[11px]">
+                    Note: Never share private keys or seed phrases. Provide only contract bytecodes, public wallet addresses, or repository links.
+                </div>
+            </div>
+
+            <div class="flex justify-end gap-3 pt-2">
+                <button onclick="closeModal()" class="px-4 py-2 rounded bg-surface hover:bg-cardBorder border border-cardBorder text-xs font-mono text-platinum-300">
+                    Close Window
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Institutional Footer -->
+    <footer class="border-t border-cardBorder bg-surface py-8 mt-12 text-xs font-mono text-platinum-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <div>
+                    <strong class="text-platinum-200">THE DBPRECEPT CLEARING HOUSE</strong>
+                    <span class="text-platinum-500">| Sovereign EVM Security &amp; Verification Standard</span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="https://dbprecept.us" target="_blank" class="hover:text-ice-300 transition-colors">dbprecept.us</a>
+                    <span>&bull;</span>
+                    <a href="https://www.instagram.com/dde_clearinghouse?rpxt=cW9kN2o1dDFxajJj" target="_blank" class="hover:text-cobalt-400 transition-colors">Instagram Intake</a>
+                </div>
+            </div>
+
+            <p class="text-[10px] text-platinum-500 leading-relaxed font-sans border-t border-cardBorder/60 pt-4">
+                Disclaimer: THE DBPRECEPT CLEARING HOUSE operates as an independent verification authority for default-deny EVM execution.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Interactive Logic Controller -->
+    <script>
+        function toggleLanguageDropdown() {
+            const menu = document.getElementById('langDropdownMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        document.addEventListener('click', function(event) {
+            const btn = document.getElementById('langDropdownBtn');
+            const menu = document.getElementById('langDropdownMenu');
+            if (btn && menu && !btn.contains(event.target) && !menu.contains(event.target)) {
+                menu.classList.add('hidden');
+            }
+        });
+
+        function triggerLanguageChange(langCode) {
+            const selectElem = document.querySelector('#google_translate_element select');
+            if (selectElem) {
+                selectElem.value = langCode;
+                selectElem.dispatchEvent(new Event('change'));
+            }
+            document.getElementById('langDropdownMenu').classList.add('hidden');
+        }
+
+        function showIntroView() {
+            document.getElementById('introView').classList.remove('hidden');
+            document.getElementById('terminalView').classList.add('hidden');
+            document.getElementById('terminalTabBar').classList.add('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showTerminalView() {
+            document.getElementById('introView').classList.add('hidden');
+            document.getElementById('terminalView').classList.remove('hidden');
+            document.getElementById('terminalTabBar').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleView() {
+            const isIntroVisible = !document.getElementById('introView').classList.contains('hidden');
+            if (isIntroVisible) { showTerminalView(); } else { showIntroView(); }
+        }
+
+        function setActiveTerminalTab(tabId) {
+            document.querySelectorAll('.term-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.term-tab-btn').forEach(btn => {
+                btn.classList.remove('text-ice-300', 'bg-card', 'border', 'border-cardBorder', 'font-semibold');
+                btn.classList.add('text-platinum-400');
+            });
+
+            const content = document.getElementById('content-' + tabId);
+            const btn = document.getElementById('tab-' + tabId);
+
+            if (content) content.classList.remove('hidden');
+            if (btn) {
+                btn.classList.remove('text-platinum-400');
+                btn.classList.add('text-ice-300', 'bg-card', 'border', 'border-cardBorder', 'font-semibold');
+            }
+        }
+
+        function switchPermitCategory(catId) {
+            document.querySelectorAll('.permit-category-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.permit-cat-btn').forEach(btn => {
+                btn.classList.remove('bg-cobalt-600', 'text-white', 'font-bold');
+                btn.classList.add('bg-card', 'text-platinum-400');
+            });
+
+            const target = document.getElementById(catId);
+            if (target) target.classList.remove('hidden');
+
+            event.target.classList.remove('bg-card', 'text-platinum-400');
+            event.target.classList.add('bg-cobalt-600', 'text-white', 'font-bold');
+        }
+
+        function openModal() { document.getElementById('contactModal').classList.remove('hidden'); }
+        function closeModal() { document.getElementById('contactModal').classList.add('hidden'); }
+
+        function copyCode(elementId) {
+            const codeText = document.getElementById(elementId).innerText;
+            const textarea = document.createElement('textarea');
+            textarea.value = codeText;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            alert("Code snippet copied to clipboard!");
+        }
+
+        // 3D Oscillating Sapphire Crystal Orb Renderer
+        const canvas = document.getElementById('orbCanvas');
+        if (canvas) {
+            const ctx = canvas.getContext('2d');
+            let angle = 0;
+
+            function drawOrb() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                const centerX = canvas.width / 2;
+                const centerY = canvas.height / 2;
+                const radius = 90;
+
+                ctx.beginPath();
+                ctx.arc(centerX, centerY, radius + Math.sin(angle) * 5, 0, Math.PI * 2);
+                ctx.strokeStyle = 'rgba(59, 130, 246, 0.65)';
+                ctx.lineWidth = 3;
+                ctx.stroke();
+
+                ctx.beginPath();
+                ctx.arc(centerX, centerY, radius - 20 + Math.cos(angle) * 3, 0, Math.PI * 2);
+                ctx.strokeStyle = 'rgba(147, 197, 253, 0.75)';
+                ctx.lineWidth = 2;
+                ctx.stroke();
+
+                ctx.save();
+                ctx.translate(centerX, centerY);
+                ctx.rotate(angle * 0.4);
+
+                for (let i = 0; i < 8; i++) {
+                    ctx.beginPath();
+                    ctx.ellipse(0, 0, radius - 10, (radius - 10) * Math.sin(angle + i * 0.5), i * Math.PI / 4, 0, Math.PI * 2);
+                    ctx.strokeStyle = i % 2 === 0 ? 'rgba(248, 250, 252, 0.45)' : 'rgba(96, 165, 250, 0.65)';
+                    ctx.lineWidth = 1.2;
+                    ctx.stroke();
+                }
+
+                ctx.restore();
+                angle += 0.02;
+                requestAnimationFrame(drawOrb);
+            }
+
+            window.onload = function() { drawOrb(); };
+        }
+    </script>
+</body>
+</html>
